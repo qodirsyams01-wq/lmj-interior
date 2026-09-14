@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMJ INTERIOR EKSTERIOR & LMJ KONTRAKTOR</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #2c1810 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 850px;
+            width: 100%;
+            perspective: 1000px;
+        }
+        .kartu-3d {
+            background: #fff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 
+                0 30px 60px rgba(0,0,0,0.4),
+                0 15px 30px rgba(0,0,0,0.2);
+            transform-style: preserve-3d;
+            transition: transform 0.4s ease;
+        }
+        .kartu-3d:hover {
+            transform: rotateX(2deg) rotateY(-2deg) translateZ(10px);
+        }
+        /* === BAGIAN ATAS === */
+        .hero {
+            display: flex;
+            height: 340px;
+            background: linear-gradient(90deg, #2c1810 0%, #4a2f22 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-gambar {
+            width: 55%;
+            background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200') center/cover no-repeat;
+            transition: transform 0.5s ease;
+        }
+        .hero:hover .hero-gambar {
+            transform: scale(1.08);
+        }
+        .hero-gambar::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 120px;
+            height: 100%;
+            background: linear-gradient(to left, #4a2f22, transparent);
+        }
+        .hero-teks {
+            width: 45%;
+            padding: 25px;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .logo {
+            font-size: 13px;
+            letter-spacing: 4px;
+            color: #d4af7f;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .info-bar {
+            background: rgba(212,175,127,0.15);
+            border: 1px solid rgba(212,175,127,0.3);
+            border-radius: 10px;
+            padding: 10px 12px;
+            margin-bottom: 12px;
+        }
+        .jam { font-size: 24px; font-weight: 700; color: #d4af7f; }
+        .kalender { font-size: 12px; color: #e0d4c4; margin: 4px 0; }
+        .cuaca { display: flex; gap: 8px; margin-top: 6px; padding-top: 6px; border-top: 1px dashed rgba(212,175,127,0.25); }
+        .cuaca-icon { font-size: 28px; }
+        .cuaca-suhu { font-size: 18px; font-weight: 600; color: #d4af7f; }
+        .cuaca-desc { font-size: 11px; color: #e0d4c4; }
+        .hero-teks h1 { font-size: 34px; line-height: 1.2; }
+        .hero-teks h1 span { display: block; font-size: 20px; color: #d4af7f; font-weight: 400; font-style: italic; }
+        .garis-pendek { width: 60px; height: 3px; background: linear-gradient(90deg, #d4af7f, #f4d098); margin: 10px 0; border-radius: 2px; }
+        .hero-teks p { font-size: 14px; color: #e0d4c4; }
+
+        /* === BAGIAN KONTEN === */
+        .konten { display: flex; }
+        .galeri {
+            width: 42%; padding: 25px 18px 25px 25px;
+            display: flex; flex-direction: column; gap: 15px;
+            background: #f8f6f3;
+        }
+        .galeri img {
+            width: 100%; height: 145px; object-fit: cover; border-radius: 12px;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .galeri img:hover { transform: scale(1.05) translateY(-5px); }
+        .info { width: 58%; padding: 25px; }
+        .info h3 { font-size: 17px; color: #2c1810; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #d4af7f; }
+        .layanan { display: grid; gap: 8px; margin-bottom: 15px; }
+        .layanan div {
+            padding: 10px 12px; background: linear-gradient(135deg, #f8f6f3, #fff);
+            border-radius: 8px; font-size: 13px; color: #4a3528;
+            border-left: 3px solid #d4af7f;
+        }
+        .layanan div::before { content: "✓"; color: #d4af7f; font-weight: bold; margin-right: 8px; }
+
+        /* === 🤖 ASISTEN AI === */
+        .ai-box {
+            background: linear-gradient(135deg, #fff8ee, #fff);
+            border: 2px solid #d4af7f;
+            border-radius: 14px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(212,175,127,0.15);
+        }
+        .ai-judul {
+            font-size: 15px; font-weight: 700; color: #2c1810; margin-bottom: 10px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .ai-judul span { font-size: 18px; }
+        .ai-chat {
+            height: 180px; overflow-y: auto; margin-bottom: 10px;
+            background: #fff; border-radius: 10px; padding: 12px;
+            border: 1px solid #f0e4d0;
+        }
+        .ai-pesan { margin-bottom: 10px; font-size: 13px; line-height: 1.5; }
+        .ai-pesan.user { text-align: right; color: #fff; }
+        .ai-pesan.user span {
+            display: inline-block; background: #d4af7f;
+            padding: 6px 10px; border-radius: 12px 12px 4px 12px; max-width: 85%;
+        }
+        .ai-pesan.bot { text-align: left; color: #4a3528; }
+        .ai-pesan.bot span {
+            display: inline-block; background: #f8f6f3;
+            padding: 6px 10px; border-radius: 12px 12px 12px 4px; max-width: 85%;
+        }
+        .ai-input-bar { display: flex; gap: 8px; }
+        .ai-input {
+            flex: 1; padding: 10px 12px; border: 2px solid #e0d4c4;
+            border-radius: 10px; font-size: 13px; outline: none;
+            transition: border 0.2s;
+        }
+        .ai-input:focus { border-color: #d4af7f; }
+        .ai-kirim {
+            padding: 10px 16px; background: linear-gradient(135deg, #d4af7f, #b89660);
+            color: #fff; border: none; border-radius: 10px; font-weight: 600;
+            cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .ai-kirim:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(184,150,96,0.35); }
+        .ai-saran { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+        .ai-saran button {
+            font-size: 11px; padding: 4px 8px; background: #f8f6f3; border: 1px solid #e0d4c4;
+            border-radius: 12px; cursor: pointer; transition: all 0.2s;
+        }
+        .ai-saran button:hover { background: #fff8ee; border-color: #d4af7f; }
+
+        .kotak-kontak {
+            background: linear-gradient(135deg, #2c1810 0%, #4a2f22 100%);
+            color: #fff; padding: 15px; border-radius: 10px; margin-bottom: 12px;
+        }
+        .kotak-kontak h4 { color: #d4af7f; margin-bottom: 8px; font-size: 13px; }
+        .kotak-kontak a { display: block; color: #fff; text-decoration: none; padding: 4px 0; font-size: 14px; border-bottom: 1px dashed rgba(212,175,127,0.3); }
+        .kotak-alamat { font-size: 12px; color: #666; padding: 10px; background: #f9f6f0; border-radius: 8px; margin-bottom: 12px; }
+        .kotak-alamat a { color: #8b5a2b; text-decoration: none; }
+        .sosmed { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+        .sosmed a { padding: 8px 12px; background: #f0ebe4; border-radius: 20px; font-size: 12px; color: #4a3528; text-decoration: none; }
+        .sosmed a:hover { background: #d4af7f; color: #fff; }
+        .rating { font-size: 14px; color: #d4af7f; font-weight: 600; }
+
+        @media (max-width: 700px) {
+            .hero { flex-direction: column; height: auto; }
+            .hero-gambar, .hero-teks { width: 100%; }
+            .hero-gambar { height: 180px; }
+            .konten { flex-direction: column; }
+            .galeri, .info { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="kartu-3d">
+        <!-- === BAGIAN ATAS === -->
+        <div class="hero">
+            <div class="hero-gambar"></div>
+            <div class="hero-teks">
+                <div class="logo">LMJ · LUMAJANG</div>
+                <div class="info-bar">
+                    <div class="jam" id="jam"></div>
+                    <div class="kalender" id="kalender"></div>
+                    <div class="cuaca">
+                        <div class="cuaca-icon" id="cuaca-icon">🌤️</div>
+                        <div>
+                            <div class="cuaca-suhu" id="cuaca-suhu">--°C</div>
+                            <div class="cuaca-desc" id="cuaca-desc">Memuat...</div>
+                        </div>
+                    </div>
+                </div>
+                <h1><span>Interior & Eksterior</span> LMJ KONTRAKTOR</h1>
+                <div class="garis-pendek"></div>
+                <p>Desain Modern & Pengerjaan Rapi.<br>Wujudkan Hunian Impian Anda.</p>
+            </div>
+        </div>
+
+        <!-- === BAGIAN KONTEN === -->
+        <div class="konten">
+            <div class="galeri">
+                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=700" alt="Desain Interior Rumah">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=700" alt="Desain Ruang Mewah">
+                <img src="https://images.unsplash.com/photo-1556910385-b953a02b48b9?w=700" alt="Furniture Kustom">
+            </div>
+
+            <div class="info">
+                <h3>PELAYANAN KAMI</h3>
+                <div class="layanan">
+                    <div>Desain & Pengerjaan Interior Bangunan</div>
+                    <div>Desain & Pengerjaan Eksterior Rumah</div>
+                    <div>Pembuatan Semua Jenis Furniture Khusus</div>
+                    <div>Pekerjaan Konstruksi & Kontraktor Umum</div>
+                </div>
+
+                <!-- === 🤖 ASISTEN AI LMJ === -->
+                <div class="ai-box">
+                    <div class="ai-judul"><span>🤖</span> Asisten AI LMJ — Tanya Seputar Layanan Kami</div>
+                    <div class="ai-chat" id="ai-chat">
+                        <div class="ai-pesan bot"><span>Halo! 👋 Saya Asisten LMJ Interior & Kontraktor. Silakan tanya soal layanan, harga, desain, atau cara pesan. Saya siap membantu!</span></div>
+                    </div>
+                    <div class="ai-input-bar">
+                        <input type="text" class="ai-input" id="ai-input" placeholder="Ketik pertanyaan Anda..." onkeypress="if(event.key==='Enter') tanyaAI()">
+                        <button class="ai-kirim" onclick="tanyaAI()">Kirim</button>
+                    </div>
+                    <div class="ai-saran">
+                        <button onclick="tanyaPertanyaan('Apa saja layanan yang tersedia?')">Apa saja layanan?</button>
+                        <button onclick="tanyaPertanyaan('Berapa kisaran harganya?')">Kisaran harga?</button>
+                        <button onclick="tanyaPertanyaan('Bagaimana cara pesan?')">Cara pesan?</button>
+                        <button onclick="tanyaPertanyaan('Alamat dan kontak?')">Alamat & kontak</button>
+                    </div>
+                </div>
+
+                <div class="kotak-kontak">
+                    <h4>HUBUNGI KAMI</h4>
+                    <a href="https://wa.me/6282232694521" target="_blank">💬 WhatsApp 1: 0822-3269-4521</a>
+                    <a href="https://wa.me/6281230832293" target="_blank">💬 WhatsApp 2: 0812-3083-2293</a>
+                </div>
+
+                <div class="kotak-alamat">
+                    📍 <strong>Alamat:</strong> Jl. Mayor Kamari Sampurno No.58, Ditotrunan, Kec. Lumajang, Kab. Lumajang, Jawa Timur 67316<br>
+                    🗺️ <a href="https://maps.app.goo.gl/Hxqo2QD3vadDjEh8A" target="_blank">Buka Lokasi di Google Maps →</a>
+                </div>
+
+                <div class="sosmed">
+                    <a href="https://www.tiktok.com/@lumajanginterior" target="_blank">🎵 TikTok Interior</a>
+                    <a href="https://www.tiktok.com/@lmjkontraktor" target="_blank">🎵 TikTok Kontraktor</a>
+                    <a href="https://instagram.com/lmj_furnitur_interior" target="_blank">📸 IG Interior</a>
+                    <a href="https://instagram.com/lmj_build_contractor_" target="_blank">📸 IG Kontraktor</a>
+                </div>
+
+                <div class="rating">⭐ Rating Google Maps: 5.0 / 5.0</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- === SKRIP JAM, CUACA & AI === -->
+<script>
+    // === JAM & KALENDER ===
+    function tampilkanJamKalender() {
+        const sekarang = new Date();
+        document.getElementById('jam').textContent = 
+            `${String(sekarang.getHours()).padStart(2,'0')}:${String(sekarang.getMinutes()).padStart(2,'0')}:${String(sekarang.getSeconds()).padStart(2,'0')}`;
+        const hari = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
+        const bulan = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+        document.getElementById('kalender').textContent = 
+            `${hari[sekarang.getDay()]}, ${sekarang.getDate()} ${bulan[sekarang.getMonth()]} ${sekarang.getFullYear()}`;
+    }
+    tampilkanJamKalender();
+    setInterval(tampilkanJamKalender, 1000);
+
+    // === CUACA LUMAJANG ===
+    async function ambilCuaca() {
+        try {
+            const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=-8.13&longitude=113.23&current=temperature_2m,weather_code&timezone=Asia%2FJakarta');
+            const d = await res.json();
+            const suhu = Math.round(d.current.temperature_2m);
+            let ikon='☀️', ket='Cerah';
+            if (d.current.weather_code>=45){ikon='☁️';ket='Berawan';}
+            if (d.current.weather_code>=51&&d.current.weather_code<=67){ikon='🌧️';ket='Hujan Ringan';}
+            if (d.current.weather_code>=71){ikon='🌧️';ket='Hujan';}
+            document.getElementById('cuaca-suhu').textContent = `${suhu}°C`;
+            document.getElementById('cuaca-desc').textContent = `${ket} · Lumajang`;
+            document.getElementById('cuaca-icon').textContent = ikon;
+        } catch {
+            document.getElementById('cuaca-suhu').textContent = '26°C';
+            document.getElementById('cuaca-desc').textContent = 'Lumajang';
+        }
+    }
+    ambilCuaca();
+
+    // === 🤖 ASISTEN AI LMJ ===
+    const basisPengetahuan = {
+        'layanan': 'Kami menyediakan: ✅ Desain & Pengerjaan Interior ✅ Desain & Pengerjaan Eksterior ✅ Pembuatan Furniture Khusus ✅ Konstruksi & Kontraktor Umum. Semua dikerjakan dengan teliti dan rapi!',
+        'harga': 'Harga tergantung jenis, ukuran, dan tingkat kesulitan. Namun kami berikan harga wajar dan terjangkau. Silakan hubungi kami untuk konsultasi & penawaran GRATIS!',
+        'pesan': 'Cara pesan: 1️⃣ Konsultasi lewat WA 2️⃣ Survey & ukur lokasi 3️⃣ Buat desain & penawaran 4️⃣ Setuju → mulai pengerjaan!',
+        'alamat': '📍 Kantor: Jl. Mayor Kamari Sampurno No.58, Ditotrunan, Kec. Lumajang, Kab. Lumajang, Jawa Timur 67316\n📞 WA: 0822-3269-4521 / 0812-3083-2293',
+        'kontak': '📞 WhatsApp 1: 0822-3269-4521\n📞 WhatsApp 2: 0812-3083-2293\n📍 Alamat: Jl. Mayor Kamari Sampurno No.58, Lumajang, Jawa Timur',
+        'desain': 'Kami desain sesuai selera Anda — modern, minimalis, klasik, atau campuran. Bisa juga sesuai foto referensi yang Anda berikan!',
+        'pengerjaan': 'Pengerjaan rapi, tepat waktu, dikerjakan tenaga berpengalaman. Hasil berkualitas dengan harga terjangkau.',
+        'default': 'Terima kasih bertanya! 😊 Untuk info lebih lengkap atau konsultasi langsung, silakan hubungi kami lewat WhatsApp ya.'
+    };
+
+    function dapatkanJawaban(pertanyaan) {
+        const tanya = pertanyaan.toLowerCase();
+        if (/layanan|jasa|kerja/.test(tanya)) return basisPengetahuan.layanan;
+        if (/harga|biaya|tarif|bayar/.test(tanya)) return basisPengetahuan.harga;
+        if (/pesan|cara|order|beli|proses/.test(tanya)) return basisPengetahuan.pesan;
+        if (/alamat|dimana|lokasi/.test(tanya)) return basisPengetahuan.alamat;
+        if (/kontak|telepon|wa|hubungi/.test(tanya)) return basisPengetahuan.kontak;
+        if (/desain|model|gaya/.test(tanya)) return basisPengetahuan.desain;
+        if (/pengerjaan|kualitas|kerja|lama/.test(tanya)) return basisPengetahuan.pengerjaan;
+        return basisPengetahuan.default;
+    }
+
+    function tambahPesan(teks, pengirim) {
+        const kotak = document.getElementById('ai-chat');
+        const p = document.createElement('div');
+        p.className = `ai-pesan ${pengirim}`;
+        p.innerHTML = `<span>${teks.replace(/\n/g,'<br>')}</span>`;
+        kotak.appendChild(p);
+        kotak.scrollTop = kotak.scrollHeight;
+    }
+
+    function tanyaAI() {
+        const input = document.getElementById('ai-input');
+        const teks = input.value.trim();
+        if (!teks) return;
+        tambahPesan(teks, 'user');
+        input.value = '';
+        setTimeout(() => {
+            tambahPesan(dapatkanJawaban(teks), 'bot');
+        }, 600);
+    }
+
+    function tanyaPertanyaan(tanya) {
+        document.getElementById('ai-input').value = tanya;
+        tanyaAI();
+    }
+</script>
+
+</body>
+</html>
