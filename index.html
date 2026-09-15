@@ -101,10 +101,15 @@
             display: flex; flex-direction: column; gap: 15px;
             background: #f8f6f3;
         }
+        /* ✅ GAMBAR OTOMATIS MENYESUAIKAN UKURAN ASLINYA */
         .galeri img {
-            width: 100%; height: 145px; object-fit: cover; border-radius: 12px;
+            width: 100%;           /* Lebar penuh wadah */
+            height: auto;          /* Tinggi menyesuaikan otomatis */
+            object-fit: contain;   /* Tampilkan seluruh gambar tanpa terpotong */
+            border-radius: 12px;
             transition: all 0.4s ease;
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            display: block;        /* Hilangkan celah bawah gambar */
         }
         .galeri img:hover { transform: scale(1.05) translateY(-5px); }
         .info { width: 58%; padding: 25px; }
@@ -256,7 +261,6 @@
                     <div>Pembuatan Semua Jenis Furniture Custom</div>
                     <div>Pekerjaan Konstruksi & Kontraktor Umum</div>
                 </div>
-
                 <!-- === 🤖 ASISTEN AI — VERSI CANGGIH & MODERN === -->
                 <div class="ai-box">
                     <div class="ai-judul">
@@ -281,7 +285,6 @@
                         <button onclick="tanyaPertanyaan('Alamat dan kontak lengkap?')">Alamat & Kontak</button>
                     </div>
                 </div>
-
                 <div class="kotak-kontak">
                     <h4>HUBUNGI KAMI</h4>
                     <a href="https://wa.me/6282232694521" target="_blank">💬 WhatsApp 1: 0822-3269-4521</a>
@@ -302,7 +305,6 @@
         </div>
     </div>
 </div>
-
 <script>
 // === JAM & KALENDER ===
 function tampilkanJamKalender() {
@@ -318,7 +320,6 @@ function tampilkanJamKalender() {
 }
 tampilkanJamKalender();
 setInterval(tampilkanJamKalender, 1000);
-
 // === CUACA LUMAJANG ===
 async function ambilCuaca() {
     try {
@@ -338,11 +339,9 @@ async function ambilCuaca() {
     }
 }
 ambilCuaca();
-
-// === 🧠 ASISTEN AI CANGGIH — DENGAN MEMORI & PEMAHAMAN LEBIH BAIK ===
+// === 🧠 ASISTEN AI CANGGIH ===
 let riwayatPercakapan = [];
 let sedangMemproses = false;
-
 const BASIS_PENGETAHUAN = {
     layanan: {
         kataKunci: ['layanan', 'jasa', 'apa saja', 'kerja', 'melayani', 'bidang', 'buat', 'kerjakan', 'jenis'],
@@ -393,7 +392,6 @@ const BASIS_PENGETAHUAN = {
         jawaban: '🏢 <strong>Tentang LMJ Interior & Eksterior</strong>\n\nKami adalah perusahaan jasa interior, eksterior, furniture kustom, dan kontraktor umum yang berbasis di Lumajang, Jawa Timur. Berpengalaman dengan tenaga terampil, mengutamakan kualitas, kerapian, ketepatan waktu, dan harga yang wajar. Rating Google Maps kami ⭐ 5.0/5.0 dari ulasan pelanggan yang puas! 💯'
     }
 };
-
 const pertanyaanLanjutan = {
     harga: ['Ingin tahu kisaran harga untuk ruangan tertentu?', 'Boleh saya tahu luas ruangannya?', 'Kira-kira anggaran Anda berapa?'],
     pesan: ['Siap konsultasi kapan saja?', 'Ingin kami jadwalkan survey?'],
@@ -401,12 +399,10 @@ const pertanyaanLanjutan = {
     alamat: ['Butuh petunjuk arah atau ingin kami jadwalkan kunjungan?'],
     bahan: ['Apakah ada jenis bahan yang Anda sukai?']
 };
-
 function analisisPertanyaan(teks) {
     const tanya = teks.toLowerCase().replace(/[^\w\s]/g, ' ').replace(/\s+/g, ' ').trim();
     let kategoriTerbaik = 'default';
     let skorTertinggi = 0;
-
     for (const [kategori, data] of Object.entries(BASIS_PENGETAHUAN)) {
         let skor = 0;
         for (const kunci of data.kataKunci) {
@@ -424,12 +420,10 @@ function analisisPertanyaan(teks) {
     }
     return { kategori: kategoriTerbaik, skor: skorTertinggi };
 }
-
 function dapatkanWaktu() {
     const s = new Date();
     return `${String(s.getHours()).padStart(2,'0')}:${String(s.getMinutes()).padStart(2,'0')}`;
 }
-
 function tambahPesan(teks, pengirim) {
     const kotak = document.getElementById('ai-chat');
     const p = document.createElement('div');
@@ -438,7 +432,6 @@ function tambahPesan(teks, pengirim) {
     kotak.appendChild(p);
     kotak.scrollTop = kotak.scrollHeight;
 }
-
 function tampilkanSedangMengetik() {
     const kotak = document.getElementById('ai-chat');
     const p = document.createElement('div');
@@ -448,17 +441,14 @@ function tampilkanSedangMengetik() {
     kotak.appendChild(p);
     kotak.scrollTop = kotak.scrollHeight;
 }
-
 function hapusSedangMengetik() {
     const el = document.getElementById('sedang-membalas');
     if (el) el.remove();
 }
-
 function dapatkanJawabanCerdas(pertanyaan) {
     const { kategori, skor } = analisisPertanyaan(pertanyaan);
     let jawaban = '';
     let saranLanjut = '';
-
     if (skor >= 2) {
         jawaban = BASIS_PENGETAHUAN[kategori].jawaban;
         if (pertanyaanLanjutan[kategori]) {
@@ -468,19 +458,15 @@ function dapatkanJawabanCerdas(pertanyaan) {
     } else {
         jawaban = 'Terima kasih atas pertanyaannya! 😊 Agar saya bisa bantu lebih tepat, silakan hubungi kami lewat WhatsApp — kami akan jelaskan secara rinci dan berikan penawaran terbaik untuk Anda!';
     }
-
-    // Ingat topik sebelumnya untuk jawaban lebih berkelanjutan
     if (riwayatPercakapan.length > 2 && kategori !== 'salam') {
         const topikSebelumnya = riwayatPercakapan[riwayatPercakapan.length - 2]?.kategori;
         if (topikSebelumnya && topikSebelumnya !== kategori && Math.random() > 0.5) {
             jawaban += '\n\nAda pertanyaan lain yang ingin ditanyakan? 😊';
         }
     }
-
     riwayatPercakapan.push({ pertanyaan, kategori, waktu: Date.now() });
     return jawaban + saranLanjut;
 }
-
 function tanyaAI() {
     const input = document.getElementById('ai-input');
     const tombol = document.getElementById('btn-kirim');
@@ -491,12 +477,9 @@ function tanyaAI() {
     sedangMemproses = true;
     input.disabled = true;
     tombol.disabled = true;
-
     tambahPesan(teks, 'user');
     input.value = '';
-
     tampilkanSedangMengetik();
-
     setTimeout(() => {
         hapusSedangMengetik();
         tambahPesan(dapatkanJawabanCerdas(teks), 'bot');
@@ -506,7 +489,6 @@ function tanyaAI() {
         input.focus();
     }, 1000 + Math.random() * 800);
 }
-
 function tanyaPertanyaan(tanya) {
     document.getElementById('ai-input').value = tanya;
     tanyaAI();
