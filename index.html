@@ -101,17 +101,59 @@
             display: flex; flex-direction: column; gap: 15px;
             background: #f8f6f3;
         }
-        /* ✅ GAMBAR OTOMATIS MENYESUAIKAN UKURAN ASLINYA */
         .galeri img {
-            width: 100%;           /* Lebar penuh wadah */
-            height: auto;          /* Tinggi menyesuaikan otomatis */
-            object-fit: contain;   /* Tampilkan seluruh gambar tanpa terpotong */
+            width: 100%;
+            height: auto;
+            object-fit: contain;
             border-radius: 12px;
             transition: all 0.4s ease;
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            display: block;        /* Hilangkan celah bawah gambar */
+            display: block;
         }
         .galeri img:hover { transform: scale(1.05) translateY(-5px); }
+
+        /* === BAGIAN KATA MUTIARA === */
+        .kata-mutiara-box {
+            margin-top: 8px;
+            padding: 14px;
+            background: linear-gradient(135deg, #fffbf0, #fff8e8);
+            border: 1px solid #f0e4c8;
+            border-radius: 12px;
+            position: relative;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .kata-mutiara-judul {
+            position: absolute;
+            top: -10px;
+            left: 14px;
+            background: #d4af7f;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 12px;
+            letter-spacing: 1px;
+        }
+        .kata-mutiara-teks {
+            font-size: 13px;
+            font-style: italic;
+            color: #5a4535;
+            text-align: center;
+            line-height: 1.6;
+            padding-top: 8px;
+            transition: opacity 0.5s ease;
+        }
+        .kata-mutiara-teks span {
+            display: block;
+            font-size: 11px;
+            color: #9a8570;
+            margin-top: 6px;
+            font-style: normal;
+        }
+
         .info { width: 58%; padding: 25px; }
         .info h3 { font-size: 17px; color: #2c1810; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #d4af7f; }
         .layanan { display: grid; gap: 8px; margin-bottom: 15px; }
@@ -124,7 +166,52 @@
         .layanan div:hover { transform: translateX(4px); }
         .layanan div::before { content: "✓"; color: #d4af7f; font-weight: bold; margin-right: 8px; }
 
-        /* === 🤖 ASISTEN AI — VERSI CANGGIH & MODERN === */
+        /* ✅ === FITUR RAMALAN FENGSHUI & PRIMBON BANGUNAN === */
+        .primbon-box {
+            background: linear-gradient(135deg, #fffbf5, #fff);
+            border: 2px solid #d4af7f;
+            border-radius: 18px;
+            padding: 18px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(212,175,127,0.18);
+        }
+        .primbon-judul {
+            font-size: 16px; font-weight: 700; color: #2c1810; margin-bottom: 12px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .primbon-input-group {
+            display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px;
+        }
+        .primbon-input-bar {
+            display: flex; gap: 8px; flex-wrap: wrap;
+        }
+        .primbon-input {
+            flex: 1; min-width: 140px; padding: 10px 14px; border: 2px solid #e0d4c4;
+            border-radius: 10px; font-size: 14px; outline: none;
+            transition: border 0.25s;
+        }
+        .primbon-input:focus { border-color: #d4af7f; }
+        .primbon-btn {
+            padding: 10px 18px; background: linear-gradient(135deg, #d4af7f, #b89660);
+            color: #fff; border: none; border-radius: 10px; font-weight: 600; cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .primbon-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(184,150,96,0.35); }
+        .primbon-hasil {
+            margin-top: 14px; padding: 14px; background: #fff9f0;
+            border-radius: 12px; border: 1px solid #f0e0c8;
+            display: none;
+        }
+        .primbon-hasil.tampil { display: block; animation: muncul 0.5s ease; }
+        @keyframes muncul { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: translateY(0); } }
+        .primbon-hasil h4 { font-size: 14px; color: #2c1810; margin-bottom: 10px; }
+        .primbon-hasil .bagian { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px dashed #e8d8c0; }
+        .primbon-hasil .bagian:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .primbon-hasil strong { color: #8b5a2b; }
+        .primbon-hasil p { font-size: 13px; line-height: 1.7; color: #4a3528; }
+        .rekomendasi-tag { display: inline-block; padding: 3px 8px; background: #e8d8c0; border-radius: 12px; font-size: 11px; margin: 2px; }
+
+        /* === ASISTEN AI === */
         .ai-box {
             background: linear-gradient(135deg, #fffbf5, #fff);
             border: 2px solid #d4af7f;
@@ -173,7 +260,6 @@
             border-left: 3px solid #d4af7f;
         }
         .ai-pesan .waktu { font-size: 10px; color: #aaa; margin-top: 3px; display: block; }
-        .ai-pesan .sedang { font-style: italic; color: #888; font-size: 12px; }
         .ai-input-bar { display: flex; gap: 10px; }
         .ai-input {
             flex: 1; padding: 12px 16px; border: 2px solid #e0d4c4;
@@ -189,7 +275,6 @@
             width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
             font-size: 18px;
         }
-        .ai-kirim:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
         .ai-kirim:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(184,150,96,0.35); }
         .ai-saran { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; }
         .ai-saran button {
@@ -250,10 +335,19 @@
         <div class="konten">
             <div class="galeri">
                 <img src="workshop-lmj.jpeg" alt="Workshop LMJ INTERIOR EKSTERIOR" onerror="this.src='https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600'">
-                <img src="kitchenset-modern.jpeg" alt="Furniture Custom" onerror="this.src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600'">
-                <img src="backdrop-tv.jpg" alt="Rumah Klasik" onerror="this.src='https://images.unsplash.com/photo-1581579438747-171122289ff5?w=600'">
-                <img src="projeck-rumah-pak-indra.jpg" alt="Rumah Klasik" onerror="this.src='https://images.unsplash.com/photo-1581579438747-171122289ff5?w=600'">
-                <img src="desain-rumah-p-rifkil.jpg" alt="Rumah Minimalis Modern" onerror="this.src='https://images.unsplash.com/photo-1581579438747-171122289ff5?w=600'">
+                <img src="kitchenset-modern.jpeg" alt="Desain Ruang Mewah" onerror="this.src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600'">
+                <img src="kantor-innovasi.jpeg" alt="Furniture Kustom" onerror="this.src='https://images.unsplash.com/photo-1581579438747-171122289ff5?w=600'">
+                <img src="projeck-rumah-pak-indra.jpg" alt="Furniture Kustom" onerror="this.src='https://images.unsplash.com/photo-1581579438747-171122289ff5?w=600'">
+                <img src="desain-rumah-p-rifkil.jpg" alt="Furniture Kustom" onerror="this.src='https://images.unsplash.com/photo-1581579438747-171122289ff5?w=600'">
+
+                <!-- === BAGIAN KATA MUTIARA === -->
+                <div class="kata-mutiara-box">
+                    <div class="kata-mutiara-judul">💡 KIAT SUKSES</div>
+                    <div class="kata-mutiara-teks" id="kata-mutiara-teks">
+                        &ldquo;Kejujuran adalah dasar dari segala keberhasilan.&rdquo;
+                        <span>— LMJ Interior Eksterior</span>
+                    </div>
+                </div>
             </div>
             <div class="info">
                 <h3>PELAYANAN KAMI</h3>
@@ -263,7 +357,43 @@
                     <div>Pembuatan Semua Jenis Furniture Custom</div>
                     <div>Pekerjaan Konstruksi & Kontraktor Umum</div>
                 </div>
-                <!-- === 🤖 ASISTEN AI — VERSI CANGGIH & MODERN === -->
+
+                <!-- ✅ === RAMALAN FENGSHUI & PRIMBON BANGUNAN === -->
+                <div class="primbon-box">
+                    <div class="primbon-judul">🏠 Ramalan Fengshui & Primbon Bangunan</div>
+                    <div class="primbon-input-group">
+                        <div class="primbon-input-bar">
+                            <input type="text" class="primbon-input" id="nama-lahir" placeholder="Nama Pelanggan">
+                            <input type="date" class="primbon-input" id="tgl-lahir">
+                        </div>
+                        <button class="primbon-btn" onclick="hitungPrimbon()">🔍 Lihat Hunian Terbaik</button>
+                    </div>
+                    <div class="primbon-hasil" id="hasil-primbon">
+                        <h4 id="hasil-nama"></h4>
+                        <div class="bagian">
+                            <strong>🔢 Elemen & Angka Keberuntungan</strong>
+                            <p id="hasil-fengshui"></p>
+                        </div>
+                        <div class="bagian">
+                            <strong>🗓️ Weton & Neptu Jawa</strong>
+                            <p id="hasil-weton"></p>
+                        </div>
+                        <div class="bagian">
+                            <strong>🏡 Arah & Bentuk Bangunan Terbaik</strong>
+                            <p id="hasil-bangunan"></p>
+                        </div>
+                        <div class="bagian">
+                            <strong>🎨 Rekomendasi Interior & Warna</strong>
+                            <p id="hasil-interior"></p>
+                        </div>
+                        <div class="bagian">
+                            <strong>💡 Saran LMJ Interior</strong>
+                            <p id="hasil-saran"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- === ASISTEN AI === -->
                 <div class="ai-box">
                     <div class="ai-judul">
                         <span>🤖</span> Asisten Pintar LMJ
@@ -271,22 +401,16 @@
                     </div>
                     <div class="ai-chat" id="ai-chat">
                         <div class="ai-pesan bot">
-                            <span>Halo! 👋 Saya <strong>Asisten Pintar LMJ</strong>. Saya ingat percakapan kita dan bisa bantu jawab seputar layanan, harga, desain, proses pemesanan, bahan, garansi, hingga alamat & kontak. Silakan tanya apa saja ya! 😊</span>
+                            <span>Halo! 👋 Saya <strong>Asisten Pintar LMJ</strong>. Siap bantu seputar layanan, desain, harga, hingga ramalan hunian terbaik untuk Anda! 😊</span>
                             <span class="waktu" id="waktu-sapaan"></span>
                         </div>
                     </div>
                     <div class="ai-input-bar">
-                        <input type="text" class="ai-input" id="ai-input" placeholder="Tanya apa saja... misal: 'Berapa lama pengerjaannya?'" onkeypress="if(event.key==='Enter') tanyaAI()">
+                        <input type="text" class="ai-input" id="ai-input" placeholder="Tanya apa saja..." onkeypress="if(event.key==='Enter') tanyaAI()">
                         <button class="ai-kirim" id="btn-kirim" onclick="tanyaAI()">➤</button>
                     </div>
-                    <div class="ai-saran">
-                        <button onclick="tanyaPertanyaan('Apa saja layanan yang tersedia?')">Layanan</button>
-                        <button onclick="tanyaPertanyaan('Berapa kisaran harganya?')">Harga</button>
-                        <button onclick="tanyaPertanyaan('Berapa lama pengerjaannya?')">Lama Pengerjaan</button>
-                        <button onclick="tanyaPertanyaan('Bagaimana cara pesan?')">Cara Pesan</button>
-                        <button onclick="tanyaPertanyaan('Alamat dan kontak lengkap?')">Alamat & Kontak</button>
-                    </div>
                 </div>
+
                 <div class="kotak-kontak">
                     <h4>HUBUNGI KAMI</h4>
                     <a href="https://wa.me/6282232694521" target="_blank">💬 WhatsApp 1: 0822-3269-4521</a>
@@ -307,6 +431,7 @@
         </div>
     </div>
 </div>
+
 <script>
 // === JAM & KALENDER ===
 function tampilkanJamKalender() {
@@ -322,6 +447,7 @@ function tampilkanJamKalender() {
 }
 tampilkanJamKalender();
 setInterval(tampilkanJamKalender, 1000);
+
 // === CUACA LUMAJANG ===
 async function ambilCuaca() {
     try {
@@ -341,159 +467,118 @@ async function ambilCuaca() {
     }
 }
 ambilCuaca();
-// === 🧠 ASISTEN AI CANGGIH ===
-let riwayatPercakapan = [];
+
+// === KATA MUTIARA ===
+const DAFTAR_KATA_MUTIARA = [
+    { teks: '&ldquo;Kejujuran adalah dasar dari segala keberhasilan.&rdquo;', penulis: 'LMJ Interior Eksterior' },
+    { teks: '&ldquo;Kerja keras, ketelitian, dan kejujuran adalah kunci kesuksesan sejati.&rdquo;', penulis: 'Kiat Sukses' },
+    { teks: '&ldquo;Kualitas bukanlah kebetulan, melainkan hasil dari usaha yang sungguh-sungguh.&rdquo;', penulis: 'Kiat Sukses' },
+    { teks: '&ldquo;Pelayanan terbaik adalah jaminan masa depan yang gemilang.&rdquo;', penulis: 'LMJ Interior Eksterior' },
+    { teks: '&ldquo;Kesuksesan dimulai dari tekad yang kuat dan dikerjakan dengan hati.&rdquo;', penulis: 'Kiat Sukses' },
+    { teks: '&ldquo;Kepuasan pelanggan adalah kebahagiaan terbesar bagi kami.&rdquo;', penulis: 'LMJ Interior Eksterior' },
+    { teks: '&ldquo;Bekerja dengan sepenuh hati, hasilnya akan terlihat dengan mata hati.&rdquo;', penulis: 'Kiat Sukses' },
+    { teks: '&ldquo;Tidak ada jalan pintas menuju kesuksesan. Semua diraih dengan ketekunan.&rdquo;', penulis: 'Kiat Sukses' },
+    { teks: '&ldquo;Rapi, jujur, dan tepat waktu — itulah cara kami meraih kepercayaan.&rdquo;', penulis: 'LMJ Interior Eksterior' },
+    { teks: '&ldquo;Impian menjadi kenyataan ketika disertai tindakan dan ketekunan.&rdquo;', penulis: 'Kiat Sukses' }
+];
+let indeksKata = 0;
+function tampilkanKataMutiara() {
+    const kotak = document.getElementById('kata-mutiara-teks');
+    kotak.style.opacity = '0';
+    setTimeout(() => {
+        const kata = DAFTAR_KATA_MUTIARA[indeksKata];
+        kotak.innerHTML = `${kata.teks}<span>— ${kata.penulis}</span>`;
+        kotak.style.opacity = '1';
+        indeksKata = (indeksKata + 1) % DAFTAR_KATA_MUTIARA.length;
+    }, 400);
+}
+setInterval(tampilkanKataMutiara, 8000);
+
+// === ✅ PERHITUNGAN FENGSHUI & PRIMBON BANGUNAN ===
+const DATA_HARI = { 'Minggu':5, 'Senin':4, 'Selasa':3, 'Rabu':7, 'Kamis':8, 'Jumat':6, 'Sabtu':9 };
+const PASARAN = ['Legi','Pahing','Pon','Wage','Kliwon'];
+const NILAI_PASARAN = { 'Legi':5, 'Pahing':9, 'Pon':7, 'Wage':4, 'Kliwon':8 };
+
+// Data Khusus Bangunan & Interior
+const ELEMEN_DATA = [
+    { nama:'Kayu', warna:'🟢 Hijau, Cokelat Krem', bahan:'🪵 Kayu Asli, Parket', arah:'➡️ Timur & Tenggara', bentuk:'📐 Persegi Panjang, Atap Miring', gaya:'🌿 Alami, Terbuka, Banyak Udara' },
+    { nama:'Api', warna:'🔴 Merah, Oranye, Ungu', bahan:'🧱 Batu Bata, Keramik Terang', arah:'⬆️ Selatan', bentuk:'🔺 Segitiga, Atap Lancip', gaya:'🔥 Mewah, Elegan, Terang' },
+    { nama:'Tanah', warna:'🟡 Kuning, Emas, Cokelat Tua', bahan:'🏡 Batu Alam, Tanah Liat, Keramik Polos', arah:'⬇️ Barat Daya & Barat Laut', bentuk:'⬜ Persegi, Rata, Simetris', gaya:'🏡 Klasik, Kokoh, Seimbang' },
+    { nama:'Logam', warna:'⚪ Putih, Perak, Emas, Abu Terang', bahan:'✨ Logam, Kaca, Granit', arah:'⬅️ Barat & Barat Laut', bentuk:'⭕ Lengkung, Bulat, Kubah', gaya:'💎 Modern, Mewah, Bersih' },
+    { nama:'Air', warna:'🔵 Biru, Hitam, Abu Gelap', bahan:'🪟 Kaca, Keramik Kilap, Cat Halus', arah:'⬇️ Utara', bentuk:'〰️ Bergelombang, Tidak Bersudut Tajam', gaya:'🌊 Tenang, Simpel, Sejuk' }
+];
+
+function jumlahkanAngka(angka) {
+    let total = 0;
+    while (angka > 0) { total += angka % 10; angka = Math.floor(angka / 10); }
+    return total > 9 ? jumlahkanAngka(total) : total;
+}
+
+function hitungPrimbon() {
+    const nama = document.getElementById('nama-lahir').value.trim();
+    const tgl = document.getElementById('tgl-lahir').value;
+    if (!nama || !tgl) { alert('⚠️ Silakan isi Nama dan Tanggal Lahir terlebih dahulu!'); return; }
+
+    const d = new Date(tgl);
+    const hariIndex = d.getDay();
+    const hariNama = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'][hariIndex];
+    const hariNilai = DATA_HARI[hariNama];
+    const pasaranIndex = (d.getDate() + Math.floor((d.getFullYear() % 100) / 4) + Math.floor(d.getFullYear() / 400)) % 5;
+    const namaPasaran = PASARAN[pasaranIndex];
+    const nilaiPasaran = NILAI_PASARAN[namaPasaran];
+    const neptu = hariNilai + nilaiPasaran;
+    const angkaLahir = jumlahkanAngka(d.getDate() + (d.getMonth()+1) + d.getFullYear());
+    const elemenIndex = (angkaLahir - 1 + 5) % 5;
+    const elemen = ELEMEN_DATA[elemenIndex];
+
+    // === Weton & Karakter ===
+    let sifatWeton = '';
+    if (neptu >= 17) sifatWeton = '🔹 Berwibawa, bijaksana, mudah mendapat keberuntungan. Cocok dengan rumah yang kokoh, luas, dan terlihat megah.';
+    else if (neptu >= 13) sifatWeton = '🔹 Rajin, tekun, bertanggung jawab. Cocok dengan hunian yang rapi, teratur, dan fungsional.';
+    else if (neptu >= 10) sifatWeton = '🔹 Lembut, suka menolong, dihormati. Cocok dengan rumah yang hangat, nyaman, dan penuh kasih sayang.';
+    else sifatWeton = '🔹 Cerdas, kreatif, berpikiran maju. Cocok dengan hunian yang unik, modern, dan penuh ide baru.';
+
+    // === Arah & Bentuk Bangunan ===
+    let arahBangunan = `🔹 <strong>Arah Terbaik:</strong> ${elemen.arah}<br>🔹 <strong>Bentuk & Atap:</strong> ${elemen.bentuk}<br>🔹 <strong>Gaya Bangunan:</strong> ${elemen.gaya}`;
+    if (neptu % 2 === 0) arahBangunan += '<br>🔹 Neptu Genap: Sebaiknya bangunan simetris & seimbang.';
+    else arahBangunan += '<br>🔹 Neptu Ganjil: Sebaiknya bangunan dinamis & bervariasi.';
+
+    // === Rekomendasi Interior ===
+    let rekomendasiInterior = `🔹 <strong>Warna Utama:</strong> ${elemen.warna}<br>🔹 <strong>Bahan Terbaik:</strong> ${elemen.bahan}<br>🔹 <strong>Penempatan Ruang:</strong> Ruang utama menghadap arah ${elemen.arah.replace('➡️ ','').replace('⬆️ ','').replace('⬇️ ','').replace('⬅️ ','').replace('⬇️ ','')}`;
+
+    // === Saran LMJ ===
+    let saranLMJ = `🏡 Hunian dengan elemen <strong>${elemen.nama}</strong> sangat cocok untuk Anda. Kami dari LMJ Interior Eksterior siap mewujudkan hunian impian Anda sesuai arah, warna, bahan, dan gaya terbaik berdasarkan perhitungan ini. Hubungi kami untuk konsultasi desain gratis! ✨`;
+
+    // === Tampilkan Hasil ===
+    document.getElementById('hasil-nama').textContent = `✨ ${nama} — ${hariNama}, ${d.getDate()} ${['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'][d.getMonth()]} ${d.getFullYear()}`;
+    document.getElementById('hasil-fengshui').innerHTML = `Angka Keberuntungan: <strong>${angkaLahir}</strong><br>Elemen Utama: <strong>${elemen.nama}</strong>`;
+    document.getElementById('hasil-weton').innerHTML = `Hari: <strong>${hariNama}</strong> (Nilai: ${hariNilai}) · Pasaran: <strong>${namaPasaran}</strong> (Nilai: ${nilaiPasaran})<br>Neptu: <strong>${neptu}</strong><br>${sifatWeton}`;
+    document.getElementById('hasil-bangunan').innerHTML = arahBangunan;
+    document.getElementById('hasil-interior').innerHTML = rekomendasiInterior;
+    document.getElementById('hasil-saran').innerHTML = saranLMJ;
+
+    document.getElementById('hasil-primbon').classList.add('tampil');
+}
+
+// === ASISTEN AI SEDERHANA ===
 let sedangMemproses = false;
-const BASIS_PENGETAHUAN = {
-    layanan: {
-        kataKunci: ['layanan', 'jasa', 'apa saja', 'kerja', 'melayani', 'bidang', 'buat', 'kerjakan', 'jenis'],
-        jawaban: 'Kami menyediakan berbagai layanan lengkap:\n✅ <strong>Desain & Pengerjaan Interior Rumah</strong>\n✅ <strong>Desain & Pengerjaan Eksterior Rumah</strong>\n✅ <strong>Pembuatan Semua Jenis Furniture Custom</strong>\n✅ <strong>Pekerjaan Konstruksi & Kontraktor Umum</strong>\n\nSemua dikerjakan tenaga berpengalaman dengan hasil rapi dan terjamin kualitasnya! 💪'
-    },
-    harga: {
-        kataKunci: ['harga', 'biaya', 'tarif', 'bayar', 'mahal', 'murah', 'biayanya', 'harganya', 'ongkos', 'anggaran', 'biaya pasang', 'berapa'],
-        jawaban: '💰 Harga disesuaikan dengan jenis pekerjaan, ukuran, bahan, dan tingkat kesulitan. Kami berikan harga yang <strong>wajar, transparan, dan terjangkau</strong> tanpa biaya tersembunyi.\n\n✅ Survey & konsultasi: <strong>GRATIS!</strong>\n✅ Penawaran harga: dibuatkan rincian lengkap sebelum mulai kerja\n✅ Pembayaran: bertahap sesuai kemajuan pekerjaan\n\n👉 Hubungi kami lewat WhatsApp untuk penawaran khusus dan konsultasi gratis!'
-    },
-    pesan: {
-        kataKunci: ['pesan', 'cara', 'order', 'beli', 'proses', 'bagaimana', 'memesan', 'pemesanan', 'langkah', 'mulai', 'kerjasama', 'kontrak'],
-        jawaban: '📋 Cara pemesanan mudah dan aman:\n\n1️⃣ <strong>Konsultasi</strong> — ceritakan kebutuhan Anda lewat WhatsApp\n2️⃣ <strong>Survey & Ukur</strong> — kami datang ke lokasi untuk ukur dan lihat kondisi\n3️⃣ <strong>Desain & Penawaran</strong> — kami buatkan desain sementara + rincian biaya\n4️⃣ <strong>Sepakat</strong> — jika setuju, tanda kesepakatan & mulai pengerjaan\n5️⃣ <strong>Pengerjaan & Selesai</strong> — bayar bertahap sesuai kemajuan\n\nSederhana dan transparan! 😊'
-    },
-    alamat: {
-        kataKunci: ['alamat', 'dimana', 'lokasi', 'tempat', 'posisi', 'kantor', 'peta', 'letak', 'arah', 'kemana'],
-        jawaban: '📍 <strong>Kantor LMJ Interior & Eksterior</strong>\nJl. Mayor Kamari Sampurno No.58, Ditotrunan, Kec. Lumajang, Kabupaten Lumajang, Jawa Timur 67316\n\n🗺️ Buka lewat Google Maps: https://maps.app.goo.gl/Hxqo2QD3vadDjEh8A\n\n📞 WA: 0822-3269-4521 / 0812-3083-2293\nJam kerja: Senin–Sabtu, 08.00–17.00 WIB'
-    },
-    kontak: {
-        kataKunci: ['kontak', 'telepon', 'wa', 'hubungi', 'nomor', 'sms', 'whatsapp', 'telpon', 'hubung', 'sosmed', 'media sosial', 'ig', 'tiktok'],
-        jawaban: '📞 <strong>Cara Menghubungi Kami:</strong>\n\n✅ WhatsApp 1: <strong>0822-3269-4521</strong>\n✅ WhatsApp 2: <strong>0812-3083-2293</strong>\n\n📱 Juga bisa temukan kami di:\n• TikTok: @lumajanginterior & @lmjkontraktor\n• Instagram: @lmj_furnitur_interior & @lmj_build_contractor_\n\n⏱️ Biasanya balas dalam beberapa menit!'
-    },
-    desain: {
-        kataKunci: ['desain', 'model', 'gaya', 'tampilan', 'bentuk', 'konsep', 'ide', 'sketsa', 'gambar', 'warna', 'motif', 'ruang'],
-        jawaban: '🎨 Kami ikuti selera Anda sepenuhnya! Beberapa gaya yang bisa kami kerjakan:\n\n✅ <strong>Modern Minimalis</strong> — bersih, simpel, elegan\n✅ <strong>Klasik / Mewah</strong> — ukiran, detail, tampilan berkelas\n✅ <strong>Alami / Natural</strong> — banyak unsur kayu, hangat\n✅ <strong>Sesuai Foto Referensi</strong> — kirim foto contoh, kami ikuti modelnya!\n\nDesain bisa direvisi sampai Anda puas sebelum pengerjaan dimulai. 📐✨'
-    },
-    pengerjaan: {
-        kataKunci: ['pengerjaan', 'kualitas', 'kerja', 'lama', 'waktu', 'selesai', 'cepat', 'rapi', 'durasi', 'berhari', 'minggu', 'bulan', 'proses', 'tenaga', 'tukang', 'pengerjaan'],
-        jawaban: '⏱️ <strong>Tentang Pengerjaan & Kualitas:</strong>\n\n✅ Pengerjaan rapi, teliti, dan bersih\n✅ Tepat waktu sesuai kesepakatan\n✅ Dikerjakan tenaga berpengalaman & terampil\n✅ Lama pengerjaan tergantung skala:\n   • Furniture: 7–30 hari\n   • Interior ruangan: 2–6 minggu\n   • Renovasi / Bangun: 1–3 bulan\n✅ Garansi kualitas hasil kerja\n\nKami utamakan kepuasan Anda! ⭐'
-    },
-    bahan: {
-        kataKunci: ['bahan', 'kayunya', 'jenis kayu', 'bahan apa', 'kualitas bahan', 'material', 'bahan-bahan', 'kayu', 'lapisan', 'finishing'],
-        jawaban: '🪵 <strong>Pilihan Bahan Berkualitas:</strong>\n\n✅ Kayu Jati, Mahoni, Kamper, Pinus — sesuai kebutuhan\n✅ Papan Partikel / MDF lapis HPL — praktis & beragam warna\n✅ Kayu Lapis lapis kayu asli — kuat & tampilan alami\n✅ Bahan lain sesuai permintaan & anggaran Anda\n\nKami sarankan bahan terbaik yang seimbang antara kualitas, keawetan, dan harga! 💡'
-    },
-    garansi: {
-        kataKunci: ['garansi', 'jaminan', 'rusak', 'perbaikan', 'retur', 'bertahan', 'awet', 'jaminan kualitas', 'cacat', 'salah'],
-        jawaban: '🛡️ <strong>Garansi Kepuasan:</strong>\n\n✅ Hasil dikerjakan sesuai kesepakatan desain & kualitas\n✅ Jika ada ketidaksesuaian, kami perbaiki sampai sesuai\n✅ Garansi pengerjaan selama masa pemeliharaan setelah selesai\n✅ Komitmen: pengerjaan rapi, bahan sesuai yang disepakati\n\nKami percaya pada kualitas kerja, jadi Anda tenang memilih LMJ! 😊'
-    },
-    pembayaran: {
-        kataKunci: ['bayar', 'pembayaran', 'cara bayar', 'angsuran', 'tahap', 'uang muka', 'dp', 'cicil', 'transfer', 'tunai', 'biaya'],
-        jawaban: '💳 <strong>Sistem Pembayaran Fleksibel:</strong>\n\n✅ Uang muka (DP) saat kesepakatan — 30–50%\n✅ Pembayaran bertahap sesuai kemajuan pekerjaan\n✅ Pelunasan saat selesai & Anda setuju hasilnya\n✅ Bisa tunai atau transfer bank\n\nTidak ada tekanan — pembayaran disesuaikan tahap pengerjaan! 👍'
-    },
-    salam: {
-        kataKunci: ['halo', 'hai', 'selamat', 'pagi', 'siang', 'sore', 'malam', 'terima kasih', 'makasih', 'terimakasih', 'sip', 'ok', 'baik', 'terima kasih banyak'],
-        jawaban: 'Halo! 😊 Terima kasih sudah menyapa! Ada yang bisa saya bantu? Silakan tanya soal layanan, harga, desain, atau hubungi kami langsung lewat WhatsApp ya!'
-    },
-    tentang: {
-        kataKunci: ['siapa', 'tentang', 'profil', 'perusahaan', 'sejarah', 'berdiri', 'pengalaman', 'keunggulan', 'kelebihan'],
-        jawaban: '🏢 <strong>Tentang LMJ Interior & Eksterior</strong>\n\nKami adalah perusahaan jasa interior, eksterior, furniture kustom, dan kontraktor umum yang berbasis di Lumajang, Jawa Timur. Berpengalaman dengan tenaga terampil, mengutamakan kualitas, kerapian, ketepatan waktu, dan harga yang wajar. Rating Google Maps kami ⭐ 5.0/5.0 dari ulasan pelanggan yang puas! 💯'
-    }
-};
-const pertanyaanLanjutan = {
-    harga: ['Ingin tahu kisaran harga untuk ruangan tertentu?', 'Boleh saya tahu luas ruangannya?', 'Kira-kira anggaran Anda berapa?'],
-    pesan: ['Siap konsultasi kapan saja?', 'Ingin kami jadwalkan survey?'],
-    desain: ['Gaya seperti apa yang Anda sukai?', 'Ada foto referensi yang bisa dikirim?'],
-    alamat: ['Butuh petunjuk arah atau ingin kami jadwalkan kunjungan?'],
-    bahan: ['Apakah ada jenis bahan yang Anda sukai?']
-};
-function analisisPertanyaan(teks) {
-    const tanya = teks.toLowerCase().replace(/[^\w\s]/g, ' ').replace(/\s+/g, ' ').trim();
-    let kategoriTerbaik = 'default';
-    let skorTertinggi = 0;
-    for (const [kategori, data] of Object.entries(BASIS_PENGETAHUAN)) {
-        let skor = 0;
-        for (const kunci of data.kataKunci) {
-            if (tanya.includes(kunci)) {
-                skor += kunci.length * 2;
-            }
-            for (const k of kunci.split(' ')) {
-                if (tanya.includes(k) && k.length > 2) skor += 1;
-            }
-        }
-        if (skor > skorTertinggi) {
-            skorTertinggi = skor;
-            kategoriTerbaik = kategori;
-        }
-    }
-    return { kategori: kategoriTerbaik, skor: skorTertinggi };
-}
-function dapatkanWaktu() {
-    const s = new Date();
-    return `${String(s.getHours()).padStart(2,'0')}:${String(s.getMinutes()).padStart(2,'0')}`;
-}
 function tambahPesan(teks, pengirim) {
     const kotak = document.getElementById('ai-chat');
     const p = document.createElement('div');
     p.className = `ai-pesan ${pengirim}`;
-    p.innerHTML = `<span>${teks.replace(/\n/g,'<br>')}</span><span class="waktu">${dapatkanWaktu()}</span>`;
+    p.innerHTML = `<span>${teks.replace(/\n/g,'<br>')}</span><span class="waktu">${document.getElementById('waktu-sapaan').textContent}</span>`;
     kotak.appendChild(p);
     kotak.scrollTop = kotak.scrollHeight;
-}
-function tampilkanSedangMengetik() {
-    const kotak = document.getElementById('ai-chat');
-    const p = document.createElement('div');
-    p.className = 'ai-pesan bot sedang';
-    p.id = 'sedang-membalas';
-    p.innerHTML = '<span class="sedang">Sedang memikirkan jawaban... ⏳</span>';
-    kotak.appendChild(p);
-    kotak.scrollTop = kotak.scrollHeight;
-}
-function hapusSedangMengetik() {
-    const el = document.getElementById('sedang-membalas');
-    if (el) el.remove();
-}
-function dapatkanJawabanCerdas(pertanyaan) {
-    const { kategori, skor } = analisisPertanyaan(pertanyaan);
-    let jawaban = '';
-    let saranLanjut = '';
-    if (skor >= 2) {
-        jawaban = BASIS_PENGETAHUAN[kategori].jawaban;
-        if (pertanyaanLanjutan[kategori]) {
-            const lanjut = pertanyaanLanjutan[kategori][Math.floor(Math.random() * pertanyaanLanjutan[kategori].length)];
-            saranLanjut = `\n\n💡 <em>${lanjut}</em>`;
-        }
-    } else {
-        jawaban = 'Terima kasih atas pertanyaannya! 😊 Agar saya bisa bantu lebih tepat, silakan hubungi kami lewat WhatsApp — kami akan jelaskan secara rinci dan berikan penawaran terbaik untuk Anda!';
-    }
-    if (riwayatPercakapan.length > 2 && kategori !== 'salam') {
-        const topikSebelumnya = riwayatPercakapan[riwayatPercakapan.length - 2]?.kategori;
-        if (topikSebelumnya && topikSebelumnya !== kategori && Math.random() > 0.5) {
-            jawaban += '\n\nAda pertanyaan lain yang ingin ditanyakan? 😊';
-        }
-    }
-    riwayatPercakapan.push({ pertanyaan, kategori, waktu: Date.now() });
-    return jawaban + saranLanjut;
 }
 function tanyaAI() {
     const input = document.getElementById('ai-input');
-    const tombol = document.getElementById('btn-kirim');
     const teks = input.value.trim();
-    
     if (!teks || sedangMemproses) return;
-    
-    sedangMemproses = true;
-    input.disabled = true;
-    tombol.disabled = true;
     tambahPesan(teks, 'user');
     input.value = '';
-    tampilkanSedangMengetik();
     setTimeout(() => {
-        hapusSedangMengetik();
-        tambahPesan(dapatkanJawabanCerdas(teks), 'bot');
-        sedangMemproses = false;
-        input.disabled = false;
-        tombol.disabled = false;
-        input.focus();
-    }, 1000 + Math.random() * 800);
-}
-function tanyaPertanyaan(tanya) {
-    document.getElementById('ai-input').value = tanya;
-    tanyaAI();
+        tambahPesan('Terima kasih atas pertanyaannya! 😊 Untuk konsultasi lengkap soal desain, bahan, harga, atau ramalan hunian terbaik, silakan hubungi kami lewat WhatsApp — kami siap bantu mewujudkan hunian impian Anda! 🏡✨', 'bot');
+    }, 800);
 }
 </script>
 </body>
