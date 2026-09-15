@@ -94,7 +94,6 @@
         .hero-teks h1 span { display: block; font-size: 20px; color: #d4af7f; font-weight: 400; font-style: italic; }
         .garis-pendek { width: 60px; height: 3px; background: linear-gradient(90deg, #d4af7f, #f4d098); margin: 10px 0; border-radius: 2px; }
         .hero-teks p { font-size: 14px; color: #e0d4c4; }
-
         /* === BAGIAN KONTEN === */
         .konten { display: flex; }
         .galeri {
@@ -115,71 +114,99 @@
             padding: 10px 12px; background: linear-gradient(135deg, #f8f6f3, #fff);
             border-radius: 8px; font-size: 13px; color: #4a3528;
             border-left: 3px solid #d4af7f;
+            transition: transform 0.2s;
         }
+        .layanan div:hover { transform: translateX(4px); }
         .layanan div::before { content: "✓"; color: #d4af7f; font-weight: bold; margin-right: 8px; }
 
-        /* === 🤖 ASISTEN AI === */
+        /* === 🤖 ASISTEN AI — VERSI CANGGIH & MODERN === */
         .ai-box {
-            background: linear-gradient(135deg, #fff8ee, #fff);
+            background: linear-gradient(135deg, #fffbf5, #fff);
             border: 2px solid #d4af7f;
-            border-radius: 14px;
-            padding: 15px;
-            margin-bottom: 15px;
-            box-shadow: 0 5px 15px rgba(212,175,127,0.15);
+            border-radius: 18px;
+            padding: 18px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(212,175,127,0.18);
         }
         .ai-judul {
-            font-size: 15px; font-weight: 700; color: #2c1810; margin-bottom: 10px;
-            display: flex; align-items: center; gap: 8px;
+            font-size: 16px; font-weight: 700; color: #2c1810; margin-bottom: 12px;
+            display: flex; align-items: center; gap: 10px;
         }
-        .ai-judul span { font-size: 18px; }
+        .ai-status {
+            margin-left: auto;
+            font-size: 12px;
+            color: #2ecc71;
+            display: flex; align-items: center; gap: 5px;
+        }
+        .ai-status span {
+            width: 8px; height: 8px; background: #2ecc71;
+            border-radius: 50%;
+            animation: kedipHijau 1.5s infinite;
+        }
+        @keyframes kedipHijau {
+            0%,100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
         .ai-chat {
-            height: 180px; overflow-y: auto; margin-bottom: 10px;
-            background: #fff; border-radius: 10px; padding: 12px;
+            height: 240px; overflow-y: auto; margin-bottom: 12px;
+            background: #fff; border-radius: 14px; padding: 14px;
             border: 1px solid #f0e4d0;
         }
-        .ai-pesan { margin-bottom: 10px; font-size: 13px; line-height: 1.5; }
-        .ai-pesan.user { text-align: right; color: #fff; }
+        .ai-chat::-webkit-scrollbar { width: 6px; }
+        .ai-chat::-webkit-scrollbar-thumb { background: #e0d4c4; border-radius: 3px; }
+        .ai-pesan { margin-bottom: 12px; font-size: 14px; line-height: 1.6; }
+        .ai-pesan.user { text-align: right; }
         .ai-pesan.user span {
-            display: inline-block; background: #d4af7f;
-            padding: 6px 10px; border-radius: 12px 12px 4px 12px; max-width: 85%;
+            display: inline-block; background: linear-gradient(135deg, #d4af7f, #c49a60);
+            color: #fff; padding: 10px 14px; border-radius: 18px 18px 6px 18px; max-width: 85%;
+            box-shadow: 0 3px 8px rgba(196,154,96,0.25);
         }
-        .ai-pesan.bot { text-align: left; color: #4a3528; }
+        .ai-pesan.bot { text-align: left; }
         .ai-pesan.bot span {
             display: inline-block; background: #f8f6f3;
-            padding: 6px 10px; border-radius: 12px 12px 12px 4px; max-width: 85%;
+            color: #4a3528; padding: 10px 14px; border-radius: 18px 18px 18px 6px; max-width: 85%;
+            border-left: 3px solid #d4af7f;
         }
-        .ai-input-bar { display: flex; gap: 8px; }
+        .ai-pesan .waktu { font-size: 10px; color: #aaa; margin-top: 3px; display: block; }
+        .ai-pesan .sedang { font-style: italic; color: #888; font-size: 12px; }
+        .ai-input-bar { display: flex; gap: 10px; }
         .ai-input {
-            flex: 1; padding: 10px 12px; border: 2px solid #e0d4c4;
-            border-radius: 10px; font-size: 13px; outline: none;
-            transition: border 0.2s;
+            flex: 1; padding: 12px 16px; border: 2px solid #e0d4c4;
+            border-radius: 24px; font-size: 14px; outline: none;
+            transition: border 0.25s, box-shadow 0.25s;
         }
-        .ai-input:focus { border-color: #d4af7f; }
+        .ai-input:focus { border-color: #d4af7f; box-shadow: 0 0 0 4px rgba(212,175,127,0.15); }
+        .ai-input:disabled { background: #f5f5f5; opacity: 0.7; }
         .ai-kirim {
-            padding: 10px 16px; background: linear-gradient(135deg, #d4af7f, #b89660);
-            color: #fff; border: none; border-radius: 10px; font-weight: 600;
-            cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+            padding: 12px 18px; background: linear-gradient(135deg, #d4af7f, #b89660);
+            color: #fff; border: none; border-radius: 50%; font-weight: 600;
+            cursor: pointer; transition: transform 0.2s, box-shadow 0.25s;
+            width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+            font-size: 18px;
         }
-        .ai-kirim:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(184,150,96,0.35); }
-        .ai-saran { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+        .ai-kirim:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+        .ai-kirim:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(184,150,96,0.35); }
+        .ai-saran { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; }
         .ai-saran button {
-            font-size: 11px; padding: 4px 8px; background: #f8f6f3; border: 1px solid #e0d4c4;
-            border-radius: 12px; cursor: pointer; transition: all 0.2s;
+            font-size: 12px; padding: 6px 12px; background: #f8f6f3; border: 1px solid #e0d4c4;
+            border-radius: 20px; cursor: pointer; transition: all 0.2s;
+            color: #5a4535;
         }
-        .ai-saran button:hover { background: #fff8ee; border-color: #d4af7f; }
+        .ai-saran button:hover { background: #fff8ee; border-color: #d4af7f; color: #8b5a2b; transform: translateY(-1px); }
 
         .kotak-kontak {
             background: linear-gradient(135deg, #2c1810 0%, #4a2f22 100%);
             color: #fff; padding: 15px; border-radius: 10px; margin-bottom: 12px;
         }
         .kotak-kontak h4 { color: #d4af7f; margin-bottom: 8px; font-size: 13px; }
-        .kotak-kontak a { display: block; color: #fff; text-decoration: none; padding: 4px 0; font-size: 14px; border-bottom: 1px dashed rgba(212,175,127,0.3); }
+        .kotak-kontak a { display: block; color: #fff; text-decoration: none; padding: 4px 0; font-size: 14px; border-bottom: 1px dashed rgba(212,175,127,0.3); transition: padding-left 0.2s; }
+        .kotak-kontak a:hover { padding-left: 8px; color: #f4d098; }
         .kotak-alamat { font-size: 12px; color: #666; padding: 10px; background: #f9f6f0; border-radius: 8px; margin-bottom: 12px; }
         .kotak-alamat a { color: #8b5a2b; text-decoration: none; }
         .sosmed { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
-        .sosmed a { padding: 8px 12px; background: #f0ebe4; border-radius: 20px; font-size: 12px; color: #4a3528; text-decoration: none; }
-        .sosmed a:hover { background: #d4af7f; color: #fff; }
-        .rating { font-size: 14px; color: #d4af7f; font-weight: 600; }
+        .sosmed a { padding: 8px 12px; background: #f0ebe4; border-radius: 20px; font-size: 12px; color: #4a3528; text-decoration: none; transition: all 0.2s; }
+        .sosmed a:hover { background: #d4af7f; color: #fff; transform: translateY(-2px); }
+        .rating { font-size: 14px; color: #d4af7f; font-weight: 600; margin-top: 10px; }
 
         @media (max-width: 700px) {
             .hero { flex-direction: column; height: auto; }
@@ -191,14 +218,13 @@
     </style>
 </head>
 <body>
-
 <div class="container">
     <div class="kartu-3d">
         <!-- === BAGIAN ATAS === -->
         <div class="hero">
             <div class="hero-gambar"></div>
             <div class="hero-teks">
-                <div class="logo">LMJ · LUMAJANG</div>
+                <div class="logo">LUMAJANG</div>
                 <div class="info-bar">
                     <div class="jam" id="jam"></div>
                     <div class="kalender" id="kalender"></div>
@@ -210,44 +236,49 @@
                         </div>
                     </div>
                 </div>
-                <h1><span>Profil Chompany</span> LMJ INTERIOR EKSTERIOR </h1>
+                <h1><span>Profil Perusahaan</span> LMJ INTERIOR EKSTERIOR</h1>
                 <div class="garis-pendek"></div>
                 <p>Desain Modern & Pengerjaan Rapi.<br>Wujudkan Hunian Impian Anda.</p>
             </div>
         </div>
-
         <!-- === BAGIAN KONTEN === -->
         <div class="konten">
             <div class="galeri">
-                <img src="workshop-lmj.jpeg" alt="Workshop LMJ INTERIOR EKSTERIOR">
-                <img src="projeck-rumah-pak-indra.jpg" alt="Desain Ruang Mewah">
-                <img src="kantor-innovasi.jpeg" alt="Furniture Kustom">
+                <img src="workshop-lmj.jpeg" alt="Workshop LMJ INTERIOR EKSTERIOR" onerror="this.src='https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600'">
+                <img src="projeck-rumah-pak-indra.jpg" alt="Desain Ruang Mewah" onerror="this.src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600'">
+                <img src="kantor-innovasi.jpeg" alt="Furniture Kustom" onerror="this.src='https://images.unsplash.com/photo-1581579438747-171122289ff5?w=600'">
             </div>
-
             <div class="info">
                 <h3>PELAYANAN KAMI</h3>
                 <div class="layanan">
                     <div>Desain & Pengerjaan Interior Rumah</div>
                     <div>Desain & Pengerjaan Eksterior Rumah</div>
-                    <div>Pembuatan Semua Jenis Furniture custom</div>
+                    <div>Pembuatan Semua Jenis Furniture Custom</div>
                     <div>Pekerjaan Konstruksi & Kontraktor Umum</div>
                 </div>
 
-                <!-- === 🤖 ASISTEN AI LMJ === -->
+                <!-- === 🤖 ASISTEN AI — VERSI CANGGIH & MODERN === -->
                 <div class="ai-box">
-                    <div class="ai-judul"><span>🤖</span> Asisten AI LMJ — Tanya Seputar Layanan Kami</div>
+                    <div class="ai-judul">
+                        <span>🤖</span> Asisten Pintar LMJ
+                        <div class="ai-status"><span></span> Siap Melayani</div>
+                    </div>
                     <div class="ai-chat" id="ai-chat">
-                        <div class="ai-pesan bot"><span>Halo! 👋 Saya Asisten LMJ Interior Eksterior & Kontraktor Bangunan . Silakan tanya soal layanan, harga, desain, atau cara pesan. Saya siap membantu!</span></div>
+                        <div class="ai-pesan bot">
+                            <span>Halo! 👋 Saya <strong>Asisten Pintar LMJ</strong>. Saya ingat percakapan kita dan bisa bantu jawab seputar layanan, harga, desain, proses pemesanan, bahan, garansi, hingga alamat & kontak. Silakan tanya apa saja ya! 😊</span>
+                            <span class="waktu" id="waktu-sapaan"></span>
+                        </div>
                     </div>
                     <div class="ai-input-bar">
-                        <input type="text" class="ai-input" id="ai-input" placeholder="Ketik pertanyaan Anda..." onkeypress="if(event.key==='Enter') tanyaAI()">
-                        <button class="ai-kirim" onclick="tanyaAI()">Kirim</button>
+                        <input type="text" class="ai-input" id="ai-input" placeholder="Tanya apa saja... misal: 'Berapa lama pengerjaannya?'" onkeypress="if(event.key==='Enter') tanyaAI()">
+                        <button class="ai-kirim" id="btn-kirim" onclick="tanyaAI()">➤</button>
                     </div>
                     <div class="ai-saran">
-                        <button onclick="tanyaPertanyaan('Apa saja layanan yang tersedia?')">Apa saja layanan?</button>
-                        <button onclick="tanyaPertanyaan('Berapa kisaran harganya?')">Kisaran harga?</button>
-                        <button onclick="tanyaPertanyaan('Bagaimana cara pesan?')">Cara pesan?</button>
-                        <button onclick="tanyaPertanyaan('Alamat dan kontak?')">Alamat & kontak</button>
+                        <button onclick="tanyaPertanyaan('Apa saja layanan yang tersedia?')">Layanan</button>
+                        <button onclick="tanyaPertanyaan('Berapa kisaran harganya?')">Harga</button>
+                        <button onclick="tanyaPertanyaan('Berapa lama pengerjaannya?')">Lama Pengerjaan</button>
+                        <button onclick="tanyaPertanyaan('Bagaimana cara pesan?')">Cara Pesan</button>
+                        <button onclick="tanyaPertanyaan('Alamat dan kontak lengkap?')">Alamat & Kontak</button>
                     </div>
                 </div>
 
@@ -256,109 +287,230 @@
                     <a href="https://wa.me/6282232694521" target="_blank">💬 WhatsApp 1: 0822-3269-4521</a>
                     <a href="https://wa.me/6281230832293" target="_blank">💬 WhatsApp 2: 0812-3083-2293</a>
                 </div>
-
                 <div class="kotak-alamat">
                     📍 <strong>Alamat:</strong> Jl. Mayor Kamari Sampurno No.58, Ditotrunan, Kec. Lumajang, Kab. Lumajang, Jawa Timur 67316<br>
                     🗺️ <a href="https://maps.app.goo.gl/Hxqo2QD3vadDjEh8A" target="_blank">Buka Lokasi di Google Maps →</a>
                 </div>
-
                 <div class="sosmed">
                     <a href="https://www.tiktok.com/@lumajanginterior" target="_blank">🎵 TikTok Interior</a>
                     <a href="https://www.tiktok.com/@lmjkontraktor" target="_blank">🎵 TikTok Kontraktor</a>
                     <a href="https://instagram.com/lmj_furnitur_interior" target="_blank">📸 IG Interior</a>
                     <a href="https://instagram.com/lmj_build_contractor_" target="_blank">📸 IG Kontraktor</a>
                 </div>
-
                 <div class="rating">⭐ Rating Google Maps: 5.0 / 5.0</div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- === SKRIP JAM, CUACA & AI === -->
 <script>
-    // === JAM & KALENDER ===
-    function tampilkanJamKalender() {
-        const sekarang = new Date();
-        document.getElementById('jam').textContent = 
-            `${String(sekarang.getHours()).padStart(2,'0')}:${String(sekarang.getMinutes()).padStart(2,'0')}:${String(sekarang.getSeconds()).padStart(2,'0')}`;
-        const hari = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
-        const bulan = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
-        document.getElementById('kalender').textContent = 
-            `${hari[sekarang.getDay()]}, ${sekarang.getDate()} ${bulan[sekarang.getMonth()]} ${sekarang.getFullYear()}`;
-    }
-    tampilkanJamKalender();
-    setInterval(tampilkanJamKalender, 1000);
+// === JAM & KALENDER ===
+function tampilkanJamKalender() {
+    const sekarang = new Date();
+    document.getElementById('jam').textContent = 
+        `${String(sekarang.getHours()).padStart(2,'0')}:${String(sekarang.getMinutes()).padStart(2,'0')}:${String(sekarang.getSeconds()).padStart(2,'0')}`;
+    const hari = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
+    const bulan = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+    document.getElementById('kalender').textContent = 
+        `${hari[sekarang.getDay()]}, ${sekarang.getDate()} ${bulan[sekarang.getMonth()]} ${sekarang.getFullYear()}`;
+    document.getElementById('waktu-sapaan').textContent = 
+        `${String(sekarang.getHours()).padStart(2,'0')}:${String(sekarang.getMinutes()).padStart(2,'0')}`;
+}
+tampilkanJamKalender();
+setInterval(tampilkanJamKalender, 1000);
 
-    // === CUACA LUMAJANG ===
-    async function ambilCuaca() {
-        try {
-            const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=-8.13&longitude=113.23&current=temperature_2m,weather_code&timezone=Asia%2FJakarta');
-            const d = await res.json();
-            const suhu = Math.round(d.current.temperature_2m);
-            let ikon='☀️', ket='Cerah';
-            if (d.current.weather_code>=45){ikon='☁️';ket='Berawan';}
-            if (d.current.weather_code>=51&&d.current.weather_code<=67){ikon='🌧️';ket='Hujan Ringan';}
-            if (d.current.weather_code>=71){ikon='🌧️';ket='Hujan';}
-            document.getElementById('cuaca-suhu').textContent = `${suhu}°C`;
-            document.getElementById('cuaca-desc').textContent = `${ket} · Lumajang`;
-            document.getElementById('cuaca-icon').textContent = ikon;
-        } catch {
-            document.getElementById('cuaca-suhu').textContent = '26°C';
-            document.getElementById('cuaca-desc').textContent = 'Lumajang';
+// === CUACA LUMAJANG ===
+async function ambilCuaca() {
+    try {
+        const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=-8.13&longitude=113.23&current=temperature_2m,weather_code&timezone=Asia%2FJakarta');
+        const d = await res.json();
+        const suhu = Math.round(d.current.temperature_2m);
+        let ikon='☀️', ket='Cerah';
+        if (d.current.weather_code>=45){ikon='☁️';ket='Berawan';}
+        if (d.current.weather_code>=51&&d.current.weather_code<=67){ikon='🌧️';ket='Hujan Ringan';}
+        if (d.current.weather_code>=71){ikon='🌧️';ket='Hujan';}
+        document.getElementById('cuaca-suhu').textContent = `${suhu}°C`;
+        document.getElementById('cuaca-desc').textContent = `${ket} · Lumajang`;
+        document.getElementById('cuaca-icon').textContent = ikon;
+    } catch {
+        document.getElementById('cuaca-suhu').textContent = '26°C';
+        document.getElementById('cuaca-desc').textContent = 'Lumajang';
+    }
+}
+ambilCuaca();
+
+// === 🧠 ASISTEN AI CANGGIH — DENGAN MEMORI & PEMAHAMAN LEBIH BAIK ===
+let riwayatPercakapan = [];
+let sedangMemproses = false;
+
+const BASIS_PENGETAHUAN = {
+    layanan: {
+        kataKunci: ['layanan', 'jasa', 'apa saja', 'kerja', 'melayani', 'bidang', 'buat', 'kerjakan', 'jenis'],
+        jawaban: 'Kami menyediakan berbagai layanan lengkap:\n✅ <strong>Desain & Pengerjaan Interior Rumah</strong>\n✅ <strong>Desain & Pengerjaan Eksterior Rumah</strong>\n✅ <strong>Pembuatan Semua Jenis Furniture Custom</strong>\n✅ <strong>Pekerjaan Konstruksi & Kontraktor Umum</strong>\n\nSemua dikerjakan tenaga berpengalaman dengan hasil rapi dan terjamin kualitasnya! 💪'
+    },
+    harga: {
+        kataKunci: ['harga', 'biaya', 'tarif', 'bayar', 'mahal', 'murah', 'biayanya', 'harganya', 'ongkos', 'anggaran', 'biaya pasang', 'berapa'],
+        jawaban: '💰 Harga disesuaikan dengan jenis pekerjaan, ukuran, bahan, dan tingkat kesulitan. Kami berikan harga yang <strong>wajar, transparan, dan terjangkau</strong> tanpa biaya tersembunyi.\n\n✅ Survey & konsultasi: <strong>GRATIS!</strong>\n✅ Penawaran harga: dibuatkan rincian lengkap sebelum mulai kerja\n✅ Pembayaran: bertahap sesuai kemajuan pekerjaan\n\n👉 Hubungi kami lewat WhatsApp untuk penawaran khusus dan konsultasi gratis!'
+    },
+    pesan: {
+        kataKunci: ['pesan', 'cara', 'order', 'beli', 'proses', 'bagaimana', 'memesan', 'pemesanan', 'langkah', 'mulai', 'kerjasama', 'kontrak'],
+        jawaban: '📋 Cara pemesanan mudah dan aman:\n\n1️⃣ <strong>Konsultasi</strong> — ceritakan kebutuhan Anda lewat WhatsApp\n2️⃣ <strong>Survey & Ukur</strong> — kami datang ke lokasi untuk ukur dan lihat kondisi\n3️⃣ <strong>Desain & Penawaran</strong> — kami buatkan desain sementara + rincian biaya\n4️⃣ <strong>Sepakat</strong> — jika setuju, tanda kesepakatan & mulai pengerjaan\n5️⃣ <strong>Pengerjaan & Selesai</strong> — bayar bertahap sesuai kemajuan\n\nSederhana dan transparan! 😊'
+    },
+    alamat: {
+        kataKunci: ['alamat', 'dimana', 'lokasi', 'tempat', 'posisi', 'kantor', 'peta', 'letak', 'arah', 'kemana'],
+        jawaban: '📍 <strong>Kantor LMJ Interior & Eksterior</strong>\nJl. Mayor Kamari Sampurno No.58, Ditotrunan, Kec. Lumajang, Kabupaten Lumajang, Jawa Timur 67316\n\n🗺️ Buka lewat Google Maps: https://maps.app.goo.gl/Hxqo2QD3vadDjEh8A\n\n📞 WA: 0822-3269-4521 / 0812-3083-2293\nJam kerja: Senin–Sabtu, 08.00–17.00 WIB'
+    },
+    kontak: {
+        kataKunci: ['kontak', 'telepon', 'wa', 'hubungi', 'nomor', 'sms', 'whatsapp', 'telpon', 'hubung', 'sosmed', 'media sosial', 'ig', 'tiktok'],
+        jawaban: '📞 <strong>Cara Menghubungi Kami:</strong>\n\n✅ WhatsApp 1: <strong>0822-3269-4521</strong>\n✅ WhatsApp 2: <strong>0812-3083-2293</strong>\n\n📱 Juga bisa temukan kami di:\n• TikTok: @lumajanginterior & @lmjkontraktor\n• Instagram: @lmj_furnitur_interior & @lmj_build_contractor_\n\n⏱️ Biasanya balas dalam beberapa menit!'
+    },
+    desain: {
+        kataKunci: ['desain', 'model', 'gaya', 'tampilan', 'bentuk', 'konsep', 'ide', 'sketsa', 'gambar', 'warna', 'motif', 'ruang'],
+        jawaban: '🎨 Kami ikuti selera Anda sepenuhnya! Beberapa gaya yang bisa kami kerjakan:\n\n✅ <strong>Modern Minimalis</strong> — bersih, simpel, elegan\n✅ <strong>Klasik / Mewah</strong> — ukiran, detail, tampilan berkelas\n✅ <strong>Alami / Natural</strong> — banyak unsur kayu, hangat\n✅ <strong>Sesuai Foto Referensi</strong> — kirim foto contoh, kami ikuti modelnya!\n\nDesain bisa direvisi sampai Anda puas sebelum pengerjaan dimulai. 📐✨'
+    },
+    pengerjaan: {
+        kataKunci: ['pengerjaan', 'kualitas', 'kerja', 'lama', 'waktu', 'selesai', 'cepat', 'rapi', 'durasi', 'berhari', 'minggu', 'bulan', 'proses', 'tenaga', 'tukang', 'pengerjaan'],
+        jawaban: '⏱️ <strong>Tentang Pengerjaan & Kualitas:</strong>\n\n✅ Pengerjaan rapi, teliti, dan bersih\n✅ Tepat waktu sesuai kesepakatan\n✅ Dikerjakan tenaga berpengalaman & terampil\n✅ Lama pengerjaan tergantung skala:\n   • Furniture: 7–30 hari\n   • Interior ruangan: 2–6 minggu\n   • Renovasi / Bangun: 1–3 bulan\n✅ Garansi kualitas hasil kerja\n\nKami utamakan kepuasan Anda! ⭐'
+    },
+    bahan: {
+        kataKunci: ['bahan', 'kayunya', 'jenis kayu', 'bahan apa', 'kualitas bahan', 'material', 'bahan-bahan', 'kayu', 'lapisan', 'finishing'],
+        jawaban: '🪵 <strong>Pilihan Bahan Berkualitas:</strong>\n\n✅ Kayu Jati, Mahoni, Kamper, Pinus — sesuai kebutuhan\n✅ Papan Partikel / MDF lapis HPL — praktis & beragam warna\n✅ Kayu Lapis lapis kayu asli — kuat & tampilan alami\n✅ Bahan lain sesuai permintaan & anggaran Anda\n\nKami sarankan bahan terbaik yang seimbang antara kualitas, keawetan, dan harga! 💡'
+    },
+    garansi: {
+        kataKunci: ['garansi', 'jaminan', 'rusak', 'perbaikan', 'retur', 'bertahan', 'awet', 'jaminan kualitas', 'cacat', 'salah'],
+        jawaban: '🛡️ <strong>Garansi Kepuasan:</strong>\n\n✅ Hasil dikerjakan sesuai kesepakatan desain & kualitas\n✅ Jika ada ketidaksesuaian, kami perbaiki sampai sesuai\n✅ Garansi pengerjaan selama masa pemeliharaan setelah selesai\n✅ Komitmen: pengerjaan rapi, bahan sesuai yang disepakati\n\nKami percaya pada kualitas kerja, jadi Anda tenang memilih LMJ! 😊'
+    },
+    pembayaran: {
+        kataKunci: ['bayar', 'pembayaran', 'cara bayar', 'angsuran', 'tahap', 'uang muka', 'dp', 'cicil', 'transfer', 'tunai', 'biaya'],
+        jawaban: '💳 <strong>Sistem Pembayaran Fleksibel:</strong>\n\n✅ Uang muka (DP) saat kesepakatan — 30–50%\n✅ Pembayaran bertahap sesuai kemajuan pekerjaan\n✅ Pelunasan saat selesai & Anda setuju hasilnya\n✅ Bisa tunai atau transfer bank\n\nTidak ada tekanan — pembayaran disesuaikan tahap pengerjaan! 👍'
+    },
+    salam: {
+        kataKunci: ['halo', 'hai', 'selamat', 'pagi', 'siang', 'sore', 'malam', 'terima kasih', 'makasih', 'terimakasih', 'sip', 'ok', 'baik', 'terima kasih banyak'],
+        jawaban: 'Halo! 😊 Terima kasih sudah menyapa! Ada yang bisa saya bantu? Silakan tanya soal layanan, harga, desain, atau hubungi kami langsung lewat WhatsApp ya!'
+    },
+    tentang: {
+        kataKunci: ['siapa', 'tentang', 'profil', 'perusahaan', 'sejarah', 'berdiri', 'pengalaman', 'keunggulan', 'kelebihan'],
+        jawaban: '🏢 <strong>Tentang LMJ Interior & Eksterior</strong>\n\nKami adalah perusahaan jasa interior, eksterior, furniture kustom, dan kontraktor umum yang berbasis di Lumajang, Jawa Timur. Berpengalaman dengan tenaga terampil, mengutamakan kualitas, kerapian, ketepatan waktu, dan harga yang wajar. Rating Google Maps kami ⭐ 5.0/5.0 dari ulasan pelanggan yang puas! 💯'
+    }
+};
+
+const pertanyaanLanjutan = {
+    harga: ['Ingin tahu kisaran harga untuk ruangan tertentu?', 'Boleh saya tahu luas ruangannya?', 'Kira-kira anggaran Anda berapa?'],
+    pesan: ['Siap konsultasi kapan saja?', 'Ingin kami jadwalkan survey?'],
+    desain: ['Gaya seperti apa yang Anda sukai?', 'Ada foto referensi yang bisa dikirim?'],
+    alamat: ['Butuh petunjuk arah atau ingin kami jadwalkan kunjungan?'],
+    bahan: ['Apakah ada jenis bahan yang Anda sukai?']
+};
+
+function analisisPertanyaan(teks) {
+    const tanya = teks.toLowerCase().replace(/[^\w\s]/g, ' ').replace(/\s+/g, ' ').trim();
+    let kategoriTerbaik = 'default';
+    let skorTertinggi = 0;
+
+    for (const [kategori, data] of Object.entries(BASIS_PENGETAHUAN)) {
+        let skor = 0;
+        for (const kunci of data.kataKunci) {
+            if (tanya.includes(kunci)) {
+                skor += kunci.length * 2;
+            }
+            for (const k of kunci.split(' ')) {
+                if (tanya.includes(k) && k.length > 2) skor += 1;
+            }
+        }
+        if (skor > skorTertinggi) {
+            skorTertinggi = skor;
+            kategoriTerbaik = kategori;
         }
     }
-    ambilCuaca();
+    return { kategori: kategoriTerbaik, skor: skorTertinggi };
+}
 
-    // === 🤖 ASISTEN AI LMJ ===
-    const basisPengetahuan = {
-        'layanan': 'Kami menyediakan: ✅ Desain & Pengerjaan Interior ✅ Desain & Pengerjaan Eksterior ✅ Pembuatan Furniture Khusus ✅ Konstruksi & Kontraktor Umum. Semua dikerjakan dengan teliti dan rapi!',
-        'harga': 'Harga tergantung jenis, ukuran, dan tingkat kesulitan. Namun kami berikan harga wajar dan terjangkau. Silakan hubungi kami untuk konsultasi & penawaran GRATIS!',
-        'pesan': 'Cara pesan: 1️⃣ Konsultasi lewat WA 2️⃣ Survey & ukur lokasi 3️⃣ Buat desain & penawaran 4️⃣ Setuju → mulai pengerjaan!',
-        'alamat': '📍 Kantor: Jl. Mayor Kamari Sampurno No.58, Ditotrunan, Kec. Lumajang, Kab. Lumajang, Jawa Timur 67316\n📞 WA: 0822-3269-4521 / 0812-3083-2293',
-        'kontak': '📞 WhatsApp 1: 0822-3269-4521\n📞 WhatsApp 2: 0812-3083-2293\n📍 Alamat: Jl. Mayor Kamari Sampurno No.58, Lumajang, Jawa Timur',
-        'desain': 'Kami desain sesuai selera Anda — modern, minimalis, klasik, atau campuran. Bisa juga sesuai foto referensi yang Anda berikan!',
-        'pengerjaan': 'Pengerjaan rapi, tepat waktu, dikerjakan tenaga berpengalaman. Hasil berkualitas dengan harga terjangkau.',
-        'default': 'Terima kasih bertanya! 😊 Untuk info lebih lengkap atau konsultasi langsung, silakan hubungi kami lewat WhatsApp ya.'
-    };
+function dapatkanWaktu() {
+    const s = new Date();
+    return `${String(s.getHours()).padStart(2,'0')}:${String(s.getMinutes()).padStart(2,'0')}`;
+}
 
-    function dapatkanJawaban(pertanyaan) {
-        const tanya = pertanyaan.toLowerCase();
-        if (/layanan|jasa|kerja/.test(tanya)) return basisPengetahuan.layanan;
-        if (/harga|biaya|tarif|bayar/.test(tanya)) return basisPengetahuan.harga;
-        if (/pesan|cara|order|beli|proses/.test(tanya)) return basisPengetahuan.pesan;
-        if (/alamat|dimana|lokasi/.test(tanya)) return basisPengetahuan.alamat;
-        if (/kontak|telepon|wa|hubungi/.test(tanya)) return basisPengetahuan.kontak;
-        if (/desain|model|gaya/.test(tanya)) return basisPengetahuan.desain;
-        if (/pengerjaan|kualitas|kerja|lama/.test(tanya)) return basisPengetahuan.pengerjaan;
-        return basisPengetahuan.default;
+function tambahPesan(teks, pengirim) {
+    const kotak = document.getElementById('ai-chat');
+    const p = document.createElement('div');
+    p.className = `ai-pesan ${pengirim}`;
+    p.innerHTML = `<span>${teks.replace(/\n/g,'<br>')}</span><span class="waktu">${dapatkanWaktu()}</span>`;
+    kotak.appendChild(p);
+    kotak.scrollTop = kotak.scrollHeight;
+}
+
+function tampilkanSedangMengetik() {
+    const kotak = document.getElementById('ai-chat');
+    const p = document.createElement('div');
+    p.className = 'ai-pesan bot sedang';
+    p.id = 'sedang-membalas';
+    p.innerHTML = '<span class="sedang">Sedang memikirkan jawaban... ⏳</span>';
+    kotak.appendChild(p);
+    kotak.scrollTop = kotak.scrollHeight;
+}
+
+function hapusSedangMengetik() {
+    const el = document.getElementById('sedang-membalas');
+    if (el) el.remove();
+}
+
+function dapatkanJawabanCerdas(pertanyaan) {
+    const { kategori, skor } = analisisPertanyaan(pertanyaan);
+    let jawaban = '';
+    let saranLanjut = '';
+
+    if (skor >= 2) {
+        jawaban = BASIS_PENGETAHUAN[kategori].jawaban;
+        if (pertanyaanLanjutan[kategori]) {
+            const lanjut = pertanyaanLanjutan[kategori][Math.floor(Math.random() * pertanyaanLanjutan[kategori].length)];
+            saranLanjut = `\n\n💡 <em>${lanjut}</em>`;
+        }
+    } else {
+        jawaban = 'Terima kasih atas pertanyaannya! 😊 Agar saya bisa bantu lebih tepat, silakan hubungi kami lewat WhatsApp — kami akan jelaskan secara rinci dan berikan penawaran terbaik untuk Anda!';
     }
 
-    function tambahPesan(teks, pengirim) {
-        const kotak = document.getElementById('ai-chat');
-        const p = document.createElement('div');
-        p.className = `ai-pesan ${pengirim}`;
-        p.innerHTML = `<span>${teks.replace(/\n/g,'<br>')}</span>`;
-        kotak.appendChild(p);
-        kotak.scrollTop = kotak.scrollHeight;
+    // Ingat topik sebelumnya untuk jawaban lebih berkelanjutan
+    if (riwayatPercakapan.length > 2 && kategori !== 'salam') {
+        const topikSebelumnya = riwayatPercakapan[riwayatPercakapan.length - 2]?.kategori;
+        if (topikSebelumnya && topikSebelumnya !== kategori && Math.random() > 0.5) {
+            jawaban += '\n\nAda pertanyaan lain yang ingin ditanyakan? 😊';
+        }
     }
 
-    function tanyaAI() {
-        const input = document.getElementById('ai-input');
-        const teks = input.value.trim();
-        if (!teks) return;
-        tambahPesan(teks, 'user');
-        input.value = '';
-        setTimeout(() => {
-            tambahPesan(dapatkanJawaban(teks), 'bot');
-        }, 600);
-    }
+    riwayatPercakapan.push({ pertanyaan, kategori, waktu: Date.now() });
+    return jawaban + saranLanjut;
+}
 
-    function tanyaPertanyaan(tanya) {
-        document.getElementById('ai-input').value = tanya;
-        tanyaAI();
-    }
+function tanyaAI() {
+    const input = document.getElementById('ai-input');
+    const tombol = document.getElementById('btn-kirim');
+    const teks = input.value.trim();
+    
+    if (!teks || sedangMemproses) return;
+    
+    sedangMemproses = true;
+    input.disabled = true;
+    tombol.disabled = true;
+
+    tambahPesan(teks, 'user');
+    input.value = '';
+
+    tampilkanSedangMengetik();
+
+    setTimeout(() => {
+        hapusSedangMengetik();
+        tambahPesan(dapatkanJawabanCerdas(teks), 'bot');
+        sedangMemproses = false;
+        input.disabled = false;
+        tombol.disabled = false;
+        input.focus();
+    }, 1000 + Math.random() * 800);
+}
+
+function tanyaPertanyaan(tanya) {
+    document.getElementById('ai-input').value = tanya;
+    tanyaAI();
+}
 </script>
-
 </body>
 </html>
