@@ -22,20 +22,12 @@
         .container {
             max-width: 850px;
             width: 100%;
-            perspective: 1000px;
         }
-        .kartu-3d {
+        .kartu {
             background: #fff;
             border-radius: 24px;
             overflow: hidden;
-            box-shadow: 
-                0 30px 60px rgba(0,0,0,0.4),
-                0 15px 30px rgba(0,0,0,0.2);
-            transform-style: preserve-3d;
-            transition: transform 0.4s ease;
-        }
-        .kartu-3d:hover {
-            transform: rotateX(2deg) rotateY(-2deg) translateZ(10px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
         }
         /* === BAGIAN ATAS === */
         .hero {
@@ -48,10 +40,6 @@
         .hero-gambar {
             width: 55%;
             background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200') center/cover no-repeat;
-            transition: transform 0.5s ease;
-        }
-        .hero:hover .hero-gambar {
-            transform: scale(1.08);
         }
         .hero-gambar::after {
             content: '';
@@ -90,8 +78,8 @@
         .cuaca-icon { font-size: 28px; }
         .cuaca-suhu { font-size: 18px; font-weight: 600; color: #d4af7f; }
         .cuaca-desc { font-size: 11px; color: #e0d4c4; }
-        .hero-teks h1 { font-size: 34px; line-height: 1.2; }
-        .hero-teks h1 span { display: block; font-size: 20px; color: #d4af7f; font-weight: 400; font-style: italic; }
+        .hero-teks h1 { font-size: 32px; line-height: 1.2; }
+        .hero-teks h1 span { display: block; font-size: 18px; color: #d4af7f; font-weight: 400; font-style: italic; margin-bottom: 4px; }
         .garis-pendek { width: 60px; height: 3px; background: linear-gradient(90deg, #d4af7f, #f4d098); margin: 10px 0; border-radius: 2px; }
         .hero-teks p { font-size: 14px; color: #e0d4c4; }
         /* === BAGIAN KONTEN === */
@@ -103,16 +91,13 @@
         }
         .galeri img {
             width: 100%;
-            height: auto;
-            object-fit: contain;
+            height: 160px;
+            object-fit: cover;
             border-radius: 12px;
-            transition: all 0.4s ease;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             display: block;
         }
-        .galeri img:hover { transform: scale(1.05) translateY(-5px); }
-
-        /* === BAGIAN KATA MUTIARA === */
+        /* === KATA MUTIARA === */
         .kata-mutiara-box {
             margin-top: 8px;
             padding: 14px;
@@ -153,63 +138,86 @@
             margin-top: 6px;
             font-style: normal;
         }
-
         .info { width: 58%; padding: 25px; }
         .info h3 { font-size: 17px; color: #2c1810; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #d4af7f; }
-        .layanan { display: grid; gap: 8px; margin-bottom: 15px; }
+        .layanan { display: grid; gap: 8px; margin-bottom: 20px; }
         .layanan div {
             padding: 10px 12px; background: linear-gradient(135deg, #f8f6f3, #fff);
             border-radius: 8px; font-size: 13px; color: #4a3528;
             border-left: 3px solid #d4af7f;
-            transition: transform 0.2s;
         }
-        .layanan div:hover { transform: translateX(4px); }
         .layanan div::before { content: "✓"; color: #d4af7f; font-weight: bold; margin-right: 8px; }
 
-        /* ✅ === FITUR RAMALAN FENGSHUI & PRIMBON BANGUNAN === */
+        /* === FENGSHUI & PRIMBON === */
         .primbon-box {
             background: linear-gradient(135deg, #fffbf5, #fff);
             border: 2px solid #d4af7f;
             border-radius: 18px;
             padding: 18px;
             margin-bottom: 20px;
-            box-shadow: 0 8px 25px rgba(212,175,127,0.18);
         }
         .primbon-judul {
-            font-size: 16px; font-weight: 700; color: #2c1810; margin-bottom: 12px;
-            display: flex; align-items: center; gap: 10px;
-        }
-        .primbon-input-group {
-            display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px;
+            font-size: 15px; font-weight: 700; color: #2c1810; margin-bottom: 12px;
+            display: flex; align-items: center; gap: 8px;
         }
         .primbon-input-bar {
-            display: flex; gap: 8px; flex-wrap: wrap;
+            display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px;
         }
         .primbon-input {
-            flex: 1; min-width: 140px; padding: 10px 14px; border: 2px solid #e0d4c4;
-            border-radius: 10px; font-size: 14px; outline: none;
-            transition: border 0.25s;
+            flex: 1; min-width: 120px; padding: 10px 12px; border: 2px solid #e0d4c4;
+            border-radius: 10px; font-size: 13px; outline: none;
         }
         .primbon-input:focus { border-color: #d4af7f; }
         .primbon-btn {
-            padding: 10px 18px; background: linear-gradient(135deg, #d4af7f, #b89660);
+            padding: 10px 16px; background: linear-gradient(135deg, #d4af7f, #b89660);
             color: #fff; border: none; border-radius: 10px; font-weight: 600; cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
         }
-        .primbon-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(184,150,96,0.35); }
         .primbon-hasil {
             margin-top: 14px; padding: 14px; background: #fff9f0;
             border-radius: 12px; border: 1px solid #f0e0c8;
             display: none;
         }
-        .primbon-hasil.tampil { display: block; animation: muncul 0.5s ease; }
-        @keyframes muncul { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: translateY(0); } }
-        .primbon-hasil h4 { font-size: 14px; color: #2c1810; margin-bottom: 10px; }
-        .primbon-hasil .bagian { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px dashed #e8d8c0; }
+        .primbon-hasil.tampil { display: block; }
+        .primbon-hasil .bagian { margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed #e8d8c0; }
         .primbon-hasil .bagian:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
         .primbon-hasil strong { color: #8b5a2b; }
         .primbon-hasil p { font-size: 13px; line-height: 1.7; color: #4a3528; }
-        .rekomendasi-tag { display: inline-block; padding: 3px 8px; background: #e8d8c0; border-radius: 12px; font-size: 11px; margin: 2px; }
+
+        /* ✅ PERHITUNGAN BANGUNAN & FURNITURE */
+        .hitung-box {
+            background: linear-gradient(135deg, #f0f7ff, #fff);
+            border: 2px solid #7fb3d4;
+            border-radius: 18px;
+            padding: 18px;
+            margin-bottom: 20px;
+        }
+        .hitung-judul {
+            font-size: 15px; font-weight: 700; color: #2c1810; margin-bottom: 12px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .hitung-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px;
+        }
+        .hitung-grid label { font-size: 12px; color: #555; margin-bottom: 2px; display: block; }
+        .hitung-grid input, .hitung-grid select {
+            width: 100%; padding: 9px 12px; border: 2px solid #d0e4f0;
+            border-radius: 8px; font-size: 13px; outline: none;
+        }
+        .hitung-grid input:focus, .hitung-grid select:focus { border-color: #7fb3d4; }
+        .hitung-btn {
+            width: 100%; padding: 11px; background: linear-gradient(135deg, #4a90c2, #357ab8);
+            color: #fff; border: none; border-radius: 10px; font-weight: 600; cursor: pointer; font-size: 14px;
+            margin-bottom: 12px;
+        }
+        .hitung-hasil {
+            background: #f0f7ff; border-radius: 12px; padding: 14px; display: none;
+        }
+        .hitung-hasil.tampil { display: block; }
+        .hitung-hasil h5 { font-size: 13px; color: #2c5282; margin-bottom: 8px; }
+        .hitung-hasil p { font-size: 12.5px; line-height: 1.7; color: #374151; margin-bottom: 6px; }
+        .hitung-hasil p:last-child { margin-bottom: 0; }
+        .angka-hasil { font-weight: 700; color: #2b6cb0; font-size: 15px; }
+        .catatan { font-size: 11.5px; color: #6b7280; margin-top: 8px; padding-top: 8px; border-top: 1px dashed #c5d6e0; }
 
         /* === ASISTEN AI === */
         .ai-box {
@@ -218,84 +226,58 @@
             border-radius: 18px;
             padding: 18px;
             margin-bottom: 20px;
-            box-shadow: 0 8px 25px rgba(212,175,127,0.18);
         }
         .ai-judul {
-            font-size: 16px; font-weight: 700; color: #2c1810; margin-bottom: 12px;
-            display: flex; align-items: center; gap: 10px;
+            font-size: 15px; font-weight: 700; color: #2c1810; margin-bottom: 12px;
+            display: flex; align-items: center; gap: 8px;
         }
         .ai-status {
-            margin-left: auto;
-            font-size: 12px;
-            color: #2ecc71;
-            display: flex; align-items: center; gap: 5px;
+            margin-left: auto; font-size: 11px; color: #2ecc71;
+            display: flex; align-items: center; gap: 4px;
         }
         .ai-status span {
-            width: 8px; height: 8px; background: #2ecc71;
-            border-radius: 50%;
-            animation: kedipHijau 1.5s infinite;
-        }
-        @keyframes kedipHijau {
-            0%,100% { opacity: 1; }
-            50% { opacity: 0.3; }
+            width: 7px; height: 7px; background: #2ecc71; border-radius: 50%;
         }
         .ai-chat {
-            height: 240px; overflow-y: auto; margin-bottom: 12px;
-            background: #fff; border-radius: 14px; padding: 14px;
+            height: 200px; overflow-y: auto; margin-bottom: 12px;
+            background: #fff; border-radius: 12px; padding: 12px;
             border: 1px solid #f0e4d0;
         }
-        .ai-chat::-webkit-scrollbar { width: 6px; }
-        .ai-chat::-webkit-scrollbar-thumb { background: #e0d4c4; border-radius: 3px; }
-        .ai-pesan { margin-bottom: 12px; font-size: 14px; line-height: 1.6; }
+        .ai-pesan { margin-bottom: 10px; font-size: 13px; line-height: 1.6; }
         .ai-pesan.user { text-align: right; }
         .ai-pesan.user span {
             display: inline-block; background: linear-gradient(135deg, #d4af7f, #c49a60);
-            color: #fff; padding: 10px 14px; border-radius: 18px 18px 6px 18px; max-width: 85%;
-            box-shadow: 0 3px 8px rgba(196,154,96,0.25);
+            color: #fff; padding: 9px 13px; border-radius: 16px 16px 6px 16px; max-width: 85%;
         }
         .ai-pesan.bot { text-align: left; }
         .ai-pesan.bot span {
             display: inline-block; background: #f8f6f3;
-            color: #4a3528; padding: 10px 14px; border-radius: 18px 18px 18px 6px; max-width: 85%;
+            color: #4a3528; padding: 9px 13px; border-radius: 16px 16px 16px 6px; max-width: 85%;
             border-left: 3px solid #d4af7f;
         }
         .ai-pesan .waktu { font-size: 10px; color: #aaa; margin-top: 3px; display: block; }
-        .ai-input-bar { display: flex; gap: 10px; }
+        .ai-input-bar { display: flex; gap: 8px; }
         .ai-input {
-            flex: 1; padding: 12px 16px; border: 2px solid #e0d4c4;
-            border-radius: 24px; font-size: 14px; outline: none;
-            transition: border 0.25s, box-shadow 0.25s;
+            flex: 1; padding: 10px 14px; border: 2px solid #e0d4c4;
+            border-radius: 20px; font-size: 13px; outline: none;
         }
-        .ai-input:focus { border-color: #d4af7f; box-shadow: 0 0 0 4px rgba(212,175,127,0.15); }
-        .ai-input:disabled { background: #f5f5f5; opacity: 0.7; }
+        .ai-input:focus { border-color: #d4af7f; }
         .ai-kirim {
-            padding: 12px 18px; background: linear-gradient(135deg, #d4af7f, #b89660);
-            color: #fff; border: none; border-radius: 50%; font-weight: 600;
-            cursor: pointer; transition: transform 0.2s, box-shadow 0.25s;
-            width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
-            font-size: 18px;
+            width: 40px; height: 40px; padding: 0; background: linear-gradient(135deg, #d4af7f, #b89660);
+            color: #fff; border: none; border-radius: 50%; cursor: pointer; font-size: 16px;
         }
-        .ai-kirim:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(184,150,96,0.35); }
-        .ai-saran { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; }
-        .ai-saran button {
-            font-size: 12px; padding: 6px 12px; background: #f8f6f3; border: 1px solid #e0d4c4;
-            border-radius: 20px; cursor: pointer; transition: all 0.2s;
-            color: #5a4535;
-        }
-        .ai-saran button:hover { background: #fff8ee; border-color: #d4af7f; color: #8b5a2b; transform: translateY(-1px); }
 
         .kotak-kontak {
             background: linear-gradient(135deg, #2c1810 0%, #4a2f22 100%);
-            color: #fff; padding: 15px; border-radius: 10px; margin-bottom: 12px;
+            color: #fff; padding: 15px; border-radius: 12px; margin-bottom: 12px;
         }
         .kotak-kontak h4 { color: #d4af7f; margin-bottom: 8px; font-size: 13px; }
-        .kotak-kontak a { display: block; color: #fff; text-decoration: none; padding: 4px 0; font-size: 14px; border-bottom: 1px dashed rgba(212,175,127,0.3); transition: padding-left 0.2s; }
-        .kotak-kontak a:hover { padding-left: 8px; color: #f4d098; }
-        .kotak-alamat { font-size: 12px; color: #666; padding: 10px; background: #f9f6f0; border-radius: 8px; margin-bottom: 12px; }
+        .kotak-kontak a { display: block; color: #fff; text-decoration: none; padding: 5px 0; font-size: 14px; border-bottom: 1px dashed rgba(212,175,127,0.3); }
+        .kotak-alamat { font-size: 12px; color: #666; padding: 12px; background: #f9f6f0; border-radius: 10px; margin-bottom: 12px; line-height: 1.6; }
         .kotak-alamat a { color: #8b5a2b; text-decoration: none; }
         .sosmed { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
-        .sosmed a { padding: 8px 12px; background: #f0ebe4; border-radius: 20px; font-size: 12px; color: #4a3528; text-decoration: none; transition: all 0.2s; }
-        .sosmed a:hover { background: #d4af7f; color: #fff; transform: translateY(-2px); }
+        .sosmed a { padding: 7px 12px; background: #f0ebe4; border-radius: 20px; font-size: 12px; color: #4a3528; text-decoration: none; }
+        .sosmed a:hover { background: #d4af7f; color: #fff; }
         .rating { font-size: 14px; color: #d4af7f; font-weight: 600; margin-top: 10px; }
 
         @media (max-width: 700px) {
@@ -304,12 +286,13 @@
             .hero-gambar { height: 180px; }
             .konten { flex-direction: column; }
             .galeri, .info { width: 100%; }
+            .hitung-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <div class="kartu-3d">
+    <div class="kartu">
         <!-- === BAGIAN ATAS === -->
         <div class="hero">
             <div class="hero-gambar"></div>
@@ -334,13 +317,12 @@
         <!-- === BAGIAN KONTEN === -->
         <div class="konten">
             <div class="galeri">
-                <img src="workshop-lmj.jpeg" alt="Workshop LMJ INTERIOR EKSTERIOR" onerror="this.src='https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600'">
-                <img src="kitchenset-modern.jpeg" alt="Desain Ruang Mewah" onerror="this.src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600'">
+                <img src="workshop-lmj.jpeg" alt="Workshop LMJ" onerror="this.src='https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600'">
+                <img src="kitchenset-modern.jpeg" alt="Kitchen Set Modern" onerror="this.src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600'">
                 <img src="kantor-innovasi.jpeg" alt="Furniture Kustom" onerror="this.src='https://images.unsplash.com/photo-1581579438747-171122289ff5?w=600'">
-                <img src="projeck-rumah-pak-indra.jpg" alt="Furniture Kustom" onerror="this.src='https://images.unsplash.com/photo-1581579438747-171122289ff5?w=600'">
-                <img src="desain-rumah-p-rifkil.jpg" alt="Furniture Kustom" onerror="this.src='https://images.unsplash.com/photo-1581579438747-171122289ff5?w=600'">
-
-                <!-- === BAGIAN KATA MUTIARA === -->
+                <img src="projeck-rumah-pak-indra.jpg" alt="Proyek Rumah" onerror="this.src='https://images.unsplash.com/photo-1556911220-bff31c812dba?w=600'">
+                <img src="desain-rumah-p-rifkil.jpg" alt="Proyek Rumah" onerror="this.src='https://images.unsplash.com/photo-1556911220-bff31c812dba?w=600'">
+                
                 <div class="kata-mutiara-box">
                     <div class="kata-mutiara-judul">💡 KIAT SUKSES</div>
                     <div class="kata-mutiara-teks" id="kata-mutiara-teks">
@@ -358,16 +340,71 @@
                     <div>Pekerjaan Konstruksi & Kontraktor Umum</div>
                 </div>
 
-                <!-- ✅ === RAMALAN FENGSHUI & PRIMBON BANGUNAN === -->
+                <!-- ✅ PERHITUNGAN BANGUNAN & FURNITURE -->
+                <div class="hitung-box">
+                    <div class="hitung-judul">📐 Perhitungan Bangunan & Furniture</div>
+                    <div class="hitung-grid">
+                        <div>
+                            <label>Panjang Ruang (m)</label>
+                            <input type="number" step="0.1" id="h-panjang" placeholder="Contoh: 6">
+                        </div>
+                        <div>
+                            <label>Lebar Ruang (m)</label>
+                            <input type="number" step="0.1" id="h-lebar" placeholder="Contoh: 4">
+                        </div>
+                        <div>
+                            <label>Tinggi Dinding (m)</label>
+                            <input type="number" step="0.1" id="h-tinggi" value="3">
+                        </div>
+                        <div>
+                            <label>Jenis Ruang</label>
+                            <select id="h-jenis">
+                                <option value="ruang-tamu">Ruang Tamu</option>
+                                <option value="kamar-tidur">Kamar Tidur</option>
+                                <option value="dapur">Dapur / Kitchen Set</option>
+                                <option value="ruang-makan">Ruang Makan</option>
+                                <option value="kantor">Ruang Kerja / Kantor</option>
+                                <option value="luar">Eksterior / Bangunan Luar</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Jenis Bahan Utama</label>
+                            <select id="h-bahan">
+                                <option value="standar">Standar (Kayu Lapis / HPL)</option>
+                                <option value="menengah">Menengah (Kayu Kamper / Pinus)</option>
+                                <option value="premium">Premium (Kayu Jati / Mahoni)</option>
+                                <option value="batu">Batu & Keramik (Bangunan)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Estimasi Tingkat Kesulitan</label>
+                            <select id="h-sulit">
+                                <option value="1">Sederhana — bentuk kotak, standar</option>
+                                <option value="2" selected>Menengah — ada sudut & detail</option>
+                                <option value="3">Rumit — lengkung, ukiran, desain khusus</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="hitung-btn" onclick="hitungBangunan()">🔢 Hitung Sekarang</button>
+                    <div class="hitung-hasil" id="hasil-hitung">
+                        <h5>📊 Hasil Perhitungan</h5>
+                        <p id="h-dimensi"></p>
+                        <p id="h-luas"></p>
+                        <p id="h-bahan"></p>
+                        <p id="h-furniture"></p>
+                        <p id="h-estimasi"></p>
+                        <p id="h-saran" class="catatan"></p>
+                    </div>
+                </div>
+
+                <!-- FENGSHUI & PRIMBON -->
                 <div class="primbon-box">
                     <div class="primbon-judul">🏠 Ramalan Fengshui & Primbon Bangunan</div>
-                    <div class="primbon-input-group">
-                        <div class="primbon-input-bar">
-                            <input type="text" class="primbon-input" id="nama-lahir" placeholder="Nama Pelanggan">
-                            <input type="date" class="primbon-input" id="tgl-lahir">
-                        </div>
-                        <button class="primbon-btn" onclick="hitungPrimbon()">🔍 Lihat Hunian Terbaik</button>
+                    <div class="primbon-input-bar">
+                        <input type="text" class="primbon-input" id="nama-lahir" placeholder="Nama Pelanggan">
+                        <input type="date" class="primbon-input" id="tgl-lahir">
                     </div>
+                    <button class="primbon-btn" onclick="hitungPrimbon()">🔍 Lihat Hunian Terbaik</button>
                     <div class="primbon-hasil" id="hasil-primbon">
                         <h4 id="hasil-nama"></h4>
                         <div class="bagian">
@@ -393,7 +430,7 @@
                     </div>
                 </div>
 
-                <!-- === ASISTEN AI === -->
+                <!-- ASISTEN AI -->
                 <div class="ai-box">
                     <div class="ai-judul">
                         <span>🤖</span> Asisten Pintar LMJ
@@ -401,7 +438,7 @@
                     </div>
                     <div class="ai-chat" id="ai-chat">
                         <div class="ai-pesan bot">
-                            <span>Halo! 👋 Saya <strong>Asisten Pintar LMJ</strong>. Siap bantu seputar layanan, desain, harga, hingga ramalan hunian terbaik untuk Anda! 😊</span>
+                            <span>Halo! 👋 Saya <strong>Asisten Pintar LMJ</strong>. Siap bantu hitung kebutuhan ruang, desain, harga, hingga ramalan hunian terbaik! 😊</span>
                             <span class="waktu" id="waktu-sapaan"></span>
                         </div>
                     </div>
@@ -448,7 +485,7 @@ function tampilkanJamKalender() {
 tampilkanJamKalender();
 setInterval(tampilkanJamKalender, 1000);
 
-// === CUACA LUMAJANG ===
+// === CUACA ===
 async function ambilCuaca() {
     try {
         const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=-8.13&longitude=113.23&current=temperature_2m,weather_code&timezone=Asia%2FJakarta');
@@ -494,12 +531,92 @@ function tampilkanKataMutiara() {
 }
 setInterval(tampilkanKataMutiara, 8000);
 
-// === ✅ PERHITUNGAN FENGSHUI & PRIMBON BANGUNAN ===
+// ✅ === PERHITUNGAN BANGUNAN & FURNITURE ===
+const HARGA_BANTU = {
+    'ruang-tamu': { nama: 'Ruang Tamu', furnitur: 'Sofa, Meja Tamu, Rak TV, Lemari Hias', jmlFurnitur: 4 },
+    'kamar-tidur': { nama: 'Kamar Tidur', furnitur: 'Kasur, Lemari Pakaian, Meja Rias, Meja Belajar', jmlFurnitur: 4 },
+    'dapur': { nama: 'Dapur / Kitchen Set', furnitur: 'Kitchen Set Atas & Bawah, Meja Persiapan, Rak Penyimpanan', jmlFurnitur: 3 },
+    'ruang-makan': { nama: 'Ruang Makan', furnitur: 'Meja Makan + Kursi, Bufet, Rak Dinding', jmlFurnitur: 3 },
+    'kantor': { nama: 'Ruang Kerja / Kantor', furnitur: 'Meja Kerja, Kursi, Rak Dokumen, Lemari Arsip', jmlFurnitur: 4 },
+    'luar': { nama: 'Eksterior / Bangunan Luar', furnitur: 'Pagar, Teras, Kanopi, Rak Dinding Luar', jmlFurnitur: 4 }
+};
+const BAHAN_HARGA = {
+    'standar': { nama: 'Standar', faktor: 1, catatan: 'Kayu lapis, HPL, papan partikel — ekonomis & praktis' },
+    'menengah': { nama: 'Menengah', faktor: 1.5, catatan: 'Kayu Pinus, Kamper — kuat, tampilan alami' },
+    'premium': { nama: 'Premium', faktor: 2.5, catatan: 'Kayu Jati, Mahoni — kokoh, awet, bernilai tinggi' },
+    'batu': { nama: 'Batu & Keramik', faktor: 1.8, catatan: 'Batu alam, keramik, cat eksterior — tahan cuaca' }
+};
+
+function hitungBangunan() {
+    const p = parseFloat(document.getElementById('h-panjang').value);
+    const l = parseFloat(document.getElementById('h-lebar').value);
+    const t = parseFloat(document.getElementById('h-tinggi').value);
+    const jenis = document.getElementById('h-jenis').value;
+    const bahan = document.getElementById('h-bahan').value;
+    const tingkat = parseInt(document.getElementById('h-sulit').value);
+
+    if (!p || !l || !t || p <= 0 || l <= 0 || t <= 0) {
+        alert('⚠️ Silakan isi semua ukuran dengan angka yang benar!');
+        return;
+    }
+
+    const luasLantai = p * l;
+    const luasDinding = 2 * (p + l) * t;
+    const keliling = 2 * (p + l);
+    const infoJenis = HARGA_BANTU[jenis];
+    const infoBahan = BAHAN_HARGA[bahan];
+
+    // Estimasi kebutuhan
+    const kebutuhanKayu = (luasLantai * 0.08 + luasDinding * 0.04).toFixed(1);
+    const kebutuhanCat = (luasDinding / 8).toFixed(1);
+    const kebutuhanPapan = Math.ceil(luasLantai * 1.2);
+
+    // Estimasi biaya dasar
+    const dasarPerMeter = {1: 850000, 2: 1200000, 3: 1600000}[tingkat];
+    const estimasiDasar = Math.round(luasLantai * dasarPerMeter * infoBahan.faktor);
+    const estimasiRendah = Math.round(estimasiDasar * 0.85);
+    const estimasiTinggi = Math.round(estimasiDasar * 1.15);
+
+    // Rekomendasi ukuran furniture
+    let ukuranFurnitur = '';
+    if (jenis === 'dapur') {
+        ukuranFurnitur = `Panjang kitchen set: <strong>${(p * 0.85).toFixed(1)} m</strong> · Tinggi: <strong>0.82–0.85 m</strong> · Kedalaman: <strong>0.60 m</strong> · Rak atas tinggi: <strong>1.80–2.10 m</strong>`;
+    } else if (jenis === 'kamar-tidur') {
+        ukuranFurnitur = `Ukuran kasur cocok: <strong>${p >= 3.5 && l >= 3.5 ? '180×200 cm' : '160×200 cm'}</strong> · Lemari pakaian: lebar <strong>${(p * 0.35).toFixed(1)} m</strong> · Jarak jalan minimal <strong>0.80 m</strong>`;
+    } else if (jenis === 'ruang-tamu') {
+        ukuranFurnitur = `Sofa panjang: <strong>${(p * 0.45).toFixed(1)} m</strong> · Meja tamu: <strong>${Math.min(p,l)*0.35.toFixed(1)} × ${Math.min(p,l)*0.22.toFixed(1)} m</strong> · Jarak antar benda: <strong>min. 0.70 m</strong>`;
+    } else {
+        ukuranFurnitur = `Skala furniture: <strong>${(p*0.3).toFixed(1)}–${(p*0.45).toFixed(1)} m</strong> panjang · Proporsi seimbang dengan ruang`;
+    }
+
+    // Tampilkan hasil
+    document.getElementById('h-dimensi').innerHTML = 
+        `📐 Dimensi ruang: <strong>${p} m × ${l} m × ${t} m</strong> (P×L×T) · Keliling: <strong>${keliling.toFixed(1)} m</strong>`;
+    document.getElementById('h-luas').innerHTML = 
+        `📏 Luas lantai: <span class="angka-hasil">${luasLantai.toFixed(1)} m²</span> · Luas dinding: <span class="angka-hasil">${luasDinding.toFixed(1)} m²</span>`;
+    document.getElementById('h-bahan').innerHTML = 
+        `🪵 Bahan utama: <strong>${infoBahan.nama}</strong><br>
+        → Kebutuhan kayu/papan: <strong>${kebutuhanKayu} m³</strong><br>
+        → Lembar papan: <strong>${kebutuhanPapan} lembar</strong><br>
+        → Cat dinding: <strong>${kebutuhanCat} liter</strong><br>
+        <em style="font-size:11px;color:#666">${infoBahan.catatan}</em>`;
+    document.getElementById('h-furniture').innerHTML = 
+        `🛋️ Ruang: <strong>${infoJenis.nama}</strong><br>
+        → Perkiraan furniture: <strong>${infoJenis.furnitur}</strong><br>
+        → Rekomendasi ukuran: ${ukuranFurnitur}`;
+    document.getElementById('h-estimasi').innerHTML = 
+        `💰 Estimasi biaya pengerjaan: <strong>Rp ${estimasiRendah.toLocaleString('id-ID')} – Rp ${estimasiTinggi.toLocaleString('id-ID')}</strong><br>
+        <em style="font-size:11px;color:#666">Harga acuan, belum termasuk bahan khusus & pengiriman. Konsultasi gratis untuk harga pasti!</em>`;
+    document.getElementById('h-saran').innerHTML = 
+        `💡 Saran LMJ: Dengan ukuran ruang <strong>${p}×${l} m</strong>, desain yang <strong>${tingkat === 1 ? 'sederhana dan fungsional' : tingkat === 2 ? 'seimbang dengan detail elegan' : 'khas dan penuh karakter'}</strong> paling cocok. Kami buatkan gambar desain lengkap + rincian biaya sebelum kerja dimulai — <strong>GRATIS konsultasi!</strong> Hubungi kami lewat WhatsApp ya!`;
+
+    document.getElementById('hasil-hitung').classList.add('tampil');
+}
+
+// === FENGSHUI & PRIMBON ===
 const DATA_HARI = { 'Minggu':5, 'Senin':4, 'Selasa':3, 'Rabu':7, 'Kamis':8, 'Jumat':6, 'Sabtu':9 };
 const PASARAN = ['Legi','Pahing','Pon','Wage','Kliwon'];
 const NILAI_PASARAN = { 'Legi':5, 'Pahing':9, 'Pon':7, 'Wage':4, 'Kliwon':8 };
-
-// Data Khusus Bangunan & Interior
 const ELEMEN_DATA = [
     { nama:'Kayu', warna:'🟢 Hijau, Cokelat Krem', bahan:'🪵 Kayu Asli, Parket', arah:'➡️ Timur & Tenggara', bentuk:'📐 Persegi Panjang, Atap Miring', gaya:'🌿 Alami, Terbuka, Banyak Udara' },
     { nama:'Api', warna:'🔴 Merah, Oranye, Ungu', bahan:'🧱 Batu Bata, Keramik Terang', arah:'⬆️ Selatan', bentuk:'🔺 Segitiga, Atap Lancip', gaya:'🔥 Mewah, Elegan, Terang' },
@@ -517,8 +634,7 @@ function jumlahkanAngka(angka) {
 function hitungPrimbon() {
     const nama = document.getElementById('nama-lahir').value.trim();
     const tgl = document.getElementById('tgl-lahir').value;
-    if (!nama || !tgl) { alert('⚠️ Silakan isi Nama dan Tanggal Lahir terlebih dahulu!'); return; }
-
+    if (!nama || !tgl) { alert('⚠️ Silakan isi Nama dan Tanggal Lahir!'); return; }
     const d = new Date(tgl);
     const hariIndex = d.getDay();
     const hariNama = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'][hariIndex];
@@ -531,55 +647,18 @@ function hitungPrimbon() {
     const elemenIndex = (angkaLahir - 1 + 5) % 5;
     const elemen = ELEMEN_DATA[elemenIndex];
 
-    // === Weton & Karakter ===
     let sifatWeton = '';
     if (neptu >= 17) sifatWeton = '🔹 Berwibawa, bijaksana, mudah mendapat keberuntungan. Cocok dengan rumah yang kokoh, luas, dan terlihat megah.';
     else if (neptu >= 13) sifatWeton = '🔹 Rajin, tekun, bertanggung jawab. Cocok dengan hunian yang rapi, teratur, dan fungsional.';
     else if (neptu >= 10) sifatWeton = '🔹 Lembut, suka menolong, dihormati. Cocok dengan rumah yang hangat, nyaman, dan penuh kasih sayang.';
     else sifatWeton = '🔹 Cerdas, kreatif, berpikiran maju. Cocok dengan hunian yang unik, modern, dan penuh ide baru.';
 
-    // === Arah & Bentuk Bangunan ===
     let arahBangunan = `🔹 <strong>Arah Terbaik:</strong> ${elemen.arah}<br>🔹 <strong>Bentuk & Atap:</strong> ${elemen.bentuk}<br>🔹 <strong>Gaya Bangunan:</strong> ${elemen.gaya}`;
-    if (neptu % 2 === 0) arahBangunan += '<br>🔹 Neptu Genap: Sebaiknya bangunan simetris & seimbang.';
-    else arahBangunan += '<br>🔹 Neptu Ganjil: Sebaiknya bangunan dinamis & bervariasi.';
+    arahBangunan += neptu % 2 === 0 ? '<br>🔹 Neptu Genap: Sebaiknya bangunan simetris & seimbang.' : '<br>🔹 Neptu Ganjil: Sebaiknya bangunan dinamis & bervariasi.';
 
-    // === Rekomendasi Interior ===
-    let rekomendasiInterior = `🔹 <strong>Warna Utama:</strong> ${elemen.warna}<br>🔹 <strong>Bahan Terbaik:</strong> ${elemen.bahan}<br>🔹 <strong>Penempatan Ruang:</strong> Ruang utama menghadap arah ${elemen.arah.replace('➡️ ','').replace('⬆️ ','').replace('⬇️ ','').replace('⬅️ ','').replace('⬇️ ','')}`;
+    let rekomendasiInterior = `🔹 <strong>Warna Utama:</strong> ${elemen.warna}<br>🔹 <strong>Bahan Terbaik:</strong> ${elemen.bahan}<br>🔹 <strong>Penempatan Ruang:</strong> Ruang utama menghadap arah yang sesuai elemen ${elemen.nama}`;
+    let saranLMJ = `🏡 Hunian dengan elemen <strong>${elemen.nama}</strong> sangat cocok untuk Anda. LMJ Interior Eksterior siap mewujudkan hunian impian Anda sesuai arah, warna, bahan, dan gaya terbaik ini. Konsultasi desain <strong>GRATIS</strong>! ✨`;
 
-    // === Saran LMJ ===
-    let saranLMJ = `🏡 Hunian dengan elemen <strong>${elemen.nama}</strong> sangat cocok untuk Anda. Kami dari LMJ Interior Eksterior siap mewujudkan hunian impian Anda sesuai arah, warna, bahan, dan gaya terbaik berdasarkan perhitungan ini. Hubungi kami untuk konsultasi desain gratis! ✨`;
-
-    // === Tampilkan Hasil ===
     document.getElementById('hasil-nama').textContent = `✨ ${nama} — ${hariNama}, ${d.getDate()} ${['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'][d.getMonth()]} ${d.getFullYear()}`;
     document.getElementById('hasil-fengshui').innerHTML = `Angka Keberuntungan: <strong>${angkaLahir}</strong><br>Elemen Utama: <strong>${elemen.nama}</strong>`;
-    document.getElementById('hasil-weton').innerHTML = `Hari: <strong>${hariNama}</strong> (Nilai: ${hariNilai}) · Pasaran: <strong>${namaPasaran}</strong> (Nilai: ${nilaiPasaran})<br>Neptu: <strong>${neptu}</strong><br>${sifatWeton}`;
-    document.getElementById('hasil-bangunan').innerHTML = arahBangunan;
-    document.getElementById('hasil-interior').innerHTML = rekomendasiInterior;
-    document.getElementById('hasil-saran').innerHTML = saranLMJ;
-
-    document.getElementById('hasil-primbon').classList.add('tampil');
-}
-
-// === ASISTEN AI SEDERHANA ===
-let sedangMemproses = false;
-function tambahPesan(teks, pengirim) {
-    const kotak = document.getElementById('ai-chat');
-    const p = document.createElement('div');
-    p.className = `ai-pesan ${pengirim}`;
-    p.innerHTML = `<span>${teks.replace(/\n/g,'<br>')}</span><span class="waktu">${document.getElementById('waktu-sapaan').textContent}</span>`;
-    kotak.appendChild(p);
-    kotak.scrollTop = kotak.scrollHeight;
-}
-function tanyaAI() {
-    const input = document.getElementById('ai-input');
-    const teks = input.value.trim();
-    if (!teks || sedangMemproses) return;
-    tambahPesan(teks, 'user');
-    input.value = '';
-    setTimeout(() => {
-        tambahPesan('Terima kasih atas pertanyaannya! 😊 Untuk konsultasi lengkap soal desain, bahan, harga, atau ramalan hunian terbaik, silakan hubungi kami lewat WhatsApp — kami siap bantu mewujudkan hunian impian Anda! 🏡✨', 'bot');
-    }, 800);
-}
-</script>
-</body>
-</html>
+    document.getElementById('hasil-weton').innerHTML = `Hari: <strong>${hariNama}</strong> (${hariNilai}) · Pasaran:
