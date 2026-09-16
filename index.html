@@ -93,10 +93,12 @@
             display: flex; flex-direction: column; gap: 15px;
             background: #f8f6f3;
         }
+        /* ✅ Gambar TIDAK terpotong — tampil penuh otomatis */
         .galeri img {
             width: 100%;
-            height: 160px;
-            object-fit: cover;
+            height: auto;
+            max-height: 240px;
+            object-fit: contain;
             object-position: center;
             border-radius: 12px;
             transition: transform 0.3s ease;
@@ -269,7 +271,10 @@
             .hero-gambar { height: 200px; }
             .konten { flex-direction: column; }
             .galeri, .info { width: 100%; }
-            .galeri img { height: 180px; }
+            .galeri img {
+                height: auto;
+                max-height: none;
+            }
         }
     </style>
 </head>
@@ -300,9 +305,9 @@
         <!-- === BAGIAN KONTEN === -->
         <div class="konten">
             <div class="galeri">
-                <!-- === GAMBAR OTOMATIS MENYESUAIKAN UKURAN === -->
+                <!-- === Gambar tampil penuh tanpa terpotong === -->
                 <img src="workshop-lmj.jpeg" alt="Workshop LMJ" onerror="this.src='https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600'">
-                <img src="kitchenset-modern-jpg" alt="Proyek Rumah" onerror="this.src='https://images.unsplash.com/photo-1556911220-bff31c812dba?w=600'">
+                <img src="kitchenset-modern.jpg" alt="Proyek Rumah" onerror="this.src='https://images.unsplash.com/photo-1556911220-bff31c812dba?w=600'">
                 <img src="kantor-innovasi.jpeg" alt="Furniture Kustom" onerror="this.src='https://images.unsplash.com/photo-1581579438747-171122289ff5?w=600'">
                 <img src="projeck-rumah-pak-indra.jpg" alt="Furniture Kustom" onerror="this.src='https://images.unsplash.com/photo-1581579438747-171122289ff5?w=600'">
                 <img src="desain-rumah-p-rifkil.jpg" alt="Furniture Kustom" onerror="this.src='https://images.unsplash.com/photo-1581579438747-171122289ff5?w=600'">
@@ -311,8 +316,8 @@
                 <div class="kata-mutiara-box">
                     <div class="kata-mutiara-judul">💡 KIAT SUKSES</div>
                     <div class="kata-mutiara-teks" id="kata-mutiara-teks">
-                        &ldquo;Kejujuran adalah dasar dari segala keberhasilan.&rdquo;
-                        <span>— LMJ Interior Eksterior</span>
+                        &ldquo;Kesuksesan dimulai dari tekad yang kuat dan dikerjakan dengan hati.&rdquo;
+                        <span>— Kiat Sukses</span>
                     </div>
                 </div>
             </div>
@@ -465,6 +470,7 @@ function tampilkanKataMutiara() {
     }, 400);
 }
 
+tampilkanKataMutiara();
 setInterval(tampilkanKataMutiara, 8000);
 
 // === 🔮 RAMALAN FENGSHUI & PRIMBON ===
