@@ -93,7 +93,6 @@
             display: flex; flex-direction: column; gap: 15px;
             background: #f8f6f3;
         }
-        /* ✅ Gambar TIDAK terpotong — tampil penuh otomatis */
         .galeri img {
             width: 100%;
             height: auto;
@@ -105,7 +104,109 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
         .galeri img:hover { transform: scale(1.03); }
-        /* === KATA MUTIARA / FILOSOFI KIAT SUKSES === */
+
+        /* === 📸 FITUR REFERENSI DESAIN OTOMATIS === */
+        .referensi-box {
+            background: linear-gradient(135deg, #f0f7ff, #fff);
+            border: 2px solid #a8c8f0;
+            border-radius: 18px;
+            padding: 18px;
+            margin-bottom: 20px;
+        }
+        .referensi-judul {
+            font-size: 15px; font-weight: 700; color: #204080; margin-bottom: 12px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .referensi-unggah-area {
+            border: 2px dashed #a8c8f0;
+            border-radius: 12px;
+            padding: 20px 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 12px;
+        }
+        .referensi-unggah-area:hover, .referensi-unggah-area.aktif {
+            border-color: #4080e0;
+            background: #e8f0ff;
+        }
+        .referensi-unggah-area span { font-size: 28px; display: block; margin-bottom: 8px; }
+        .referensi-unggah-area p { font-size: 13px; color: #555; }
+        .referensi-btn-bar {
+            display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px;
+        }
+        .referensi-btn {
+            flex: 1; min-width: 120px;
+            padding: 10px 12px;
+            border: none; border-radius: 10px; font-size: 13px; font-weight: 600;
+            cursor: pointer; transition: transform 0.2s;
+        }
+        .referensi-btn:hover { transform: translateY(-2px); }
+        .btn-kamera { background: linear-gradient(135deg, #40c080, #20a060); color: #fff; }
+        .btn-unggah { background: linear-gradient(135deg, #6090f0, #4070e0); color: #fff; }
+        .pratinjau-foto {
+            width: 100%;
+            max-height: 200px;
+            object-fit: contain;
+            border-radius: 10px;
+            margin: 10px 0;
+            display: none;
+            background: #fff;
+            border: 1px solid #dde;
+        }
+        .referensi-hasil {
+            margin-top: 14px; padding: 16px; background: #f0f7ff;
+            border-radius: 12px; border: 1px solid #c8d8f0;
+            display: none;
+            animation: muncul 0.5s ease;
+        }
+        @keyframes muncul {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .referensi-hasil.tampil { display: block; }
+        .referensi-hasil h4 { color: #204080; margin-bottom: 10px; font-size: 15px; }
+        .referensi-hasil p { font-size: 13px; line-height: 1.7; color: #334; margin-bottom: 8px; }
+        .referensi-hasil .kategori {
+            display: inline-block;
+            background: #e0edff;
+            color: #204080;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-right: 6px;
+            margin-bottom: 6px;
+        }
+        .referensi-hasil .saran-desain {
+            background: #fff;
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 3px solid #4080e0;
+            margin-top: 8px;
+        }
+        input[type="file"] { display: none; }
+        video {
+            width: 100%;
+            border-radius: 10px;
+            margin: 10px 0;
+            display: none;
+            background: #000;
+        }
+        .tombol-ambil-foto {
+            background: linear-gradient(135deg, #40c080, #20a060);
+            color: #fff; border: none; border-radius: 10px;
+            padding: 10px 18px; font-weight: 600; cursor: pointer;
+            margin-top: 8px; display: none;
+        }
+        .tombol-tutup-kamera {
+            background: #e06060;
+            color: #fff; border: none; border-radius: 10px;
+            padding: 8px 14px; font-weight: 600; cursor: pointer;
+            margin-left: 8px; display: none;
+        }
+
+        /* === KATA MUTIARA === */
         .kata-mutiara-box {
             margin-top: 8px;
             padding: 14px;
@@ -188,10 +289,6 @@
             display: none;
             animation: muncul 0.5s ease;
         }
-        @keyframes muncul {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
         .primbon-hasil.tampil { display: block; }
         .primbon-hasil h4 { color: #8b5a2b; margin-bottom: 12px; font-size: 15px; }
         .primbon-hasil .bagian {
@@ -271,10 +368,7 @@
             .hero-gambar { height: 200px; }
             .konten { flex-direction: column; }
             .galeri, .info { width: 100%; }
-            .galeri img {
-                height: auto;
-                max-height: none;
-            }
+            .galeri img { height: auto; max-height: none; }
         }
     </style>
 </head>
@@ -305,12 +399,9 @@
         <!-- === BAGIAN KONTEN === -->
         <div class="konten">
             <div class="galeri">
-                <!-- === Gambar tampil penuh tanpa terpotong === -->
                 <img src="workshop-lmj.jpeg" alt="Workshop LMJ" onerror="this.src='https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600'">
-                <img src="kitchenset-modern.jpg" alt="Proyek Rumah" onerror="this.src='https://images.unsplash.com/photo-1556911220-bff31c812dba?w=600'">
+                <img src="projeck-rumah-pak-indra.jpg" alt="Proyek Rumah" onerror="this.src='https://images.unsplash.com/photo-1556911220-bff31c812dba?w=600'">
                 <img src="kantor-innovasi.jpeg" alt="Furniture Kustom" onerror="this.src='https://images.unsplash.com/photo-1581579438747-171122289ff5?w=600'">
-                <img src="projeck-rumah-pak-indra.jpg" alt="Furniture Kustom" onerror="this.src='https://images.unsplash.com/photo-1581579438747-171122289ff5?w=600'">
-                <img src="desain-rumah-p-rifkil.jpg" alt="Furniture Kustom" onerror="this.src='https://images.unsplash.com/photo-1581579438747-171122289ff5?w=600'">
 
                 <!-- ✅ KATA MUTIARA / FILOSOFI KIAT SUKSES -->
                 <div class="kata-mutiara-box">
@@ -328,6 +419,38 @@
                     <div>Desain & Pengerjaan Eksterior Rumah</div>
                     <div>Pembuatan Semua Jenis Furniture Custom</div>
                     <div>Pekerjaan Konstruksi & Kontraktor Umum</div>
+                </div>
+
+                <!-- ✅ 📸 FITUR REFERENSI DESAIN OTOMATIS -->
+                <div class="referensi-box">
+                    <div class="referensi-judul">📸 Referensi Desain dari Foto Lokasi</div>
+                    
+                    <div class="referensi-unggah-area" id="area-unggah" onclick="document.getElementById('input-foto').click()">
+                        <span>📷</span>
+                        <p>Klik di sini atau pilih tombol di bawah<br>Ambil foto lokasi / unggah gambar → dapat referensi desain</p>
+                    </div>
+                    
+                    <div class="referensi-btn-bar">
+                        <button class="referensi-btn btn-kamera" onclick="bukaKamera()">📷 Buka Kamera HP</button>
+                        <button class="referensi-btn btn-unggah" onclick="document.getElementById('input-foto').click()">📂 Unggah Foto Lokasi</button>
+                    </div>
+                    
+                    <input type="file" id="input-foto" accept="image/*" onchange="prosesFoto(this.files[0])">
+                    
+                    <video id="video-kamera" autoplay playsinline></video>
+                    <div>
+                        <button class="tombol-ambil-foto" id="btn-ambil" onclick="ambilFoto()">✅ Ambil Foto</button>
+                        <button class="tombol-tutup-kamera" id="btn-tutup" onclick="tutupKamera()">✕ Tutup</button>
+                    </div>
+                    
+                    <img class="pratinjau-foto" id="pratinjau" alt="Pratinjau Foto">
+                    
+                    <div class="referensi-hasil" id="hasil-referensi">
+                        <h4 id="judul-hasil-ref"></h4>
+                        <div id="kategori-ref"></div>
+                        <p id="deskripsi-ref"></p>
+                        <div class="saran-desain" id="saran-ref"></div>
+                    </div>
                 </div>
 
                 <!-- ✅ RAMALAN FENGSHUI & PRIMBON JAWA BANGUNAN -->
@@ -405,11 +528,14 @@
 </div>
 
 <script>
-// === JAM & KALENDER ===
+// === JAM & KALENDER — DIPASTIKAN BERJALAN ===
 function tampilkanJamKalender() {
     const sekarang = new Date();
-    document.getElementById('jam').textContent = 
-        `${String(sekarang.getHours()).padStart(2,'0')}:${String(sekarang.getMinutes()).padStart(2,'0')}:${String(sekarang.getSeconds()).padStart(2,'0')}`;
+    const jam = String(sekarang.getHours()).padStart(2, '0');
+    const menit = String(sekarang.getMinutes()).padStart(2, '0');
+    const detik = String(sekarang.getSeconds()).padStart(2, '0');
+    document.getElementById('jam').textContent = `${jam}:${menit}:${detik}`;
+    
     const hari = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
     const bulan = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
     document.getElementById('kalender').textContent = 
@@ -457,11 +583,9 @@ const DAFTAR_KATA_MUTIARA = [
 ];
 
 let indeksKata = 0;
-
 function tampilkanKataMutiara() {
     const kotak = document.getElementById('kata-mutiara-teks');
     kotak.style.opacity = '0';
-
     setTimeout(() => {
         const kata = DAFTAR_KATA_MUTIARA[indeksKata];
         kotak.innerHTML = `${kata.teks}<span>— ${kata.penulis}</span>`;
@@ -469,209 +593,179 @@ function tampilkanKataMutiara() {
         indeksKata = (indeksKata + 1) % DAFTAR_KATA_MUTIARA.length;
     }, 400);
 }
-
 tampilkanKataMutiara();
 setInterval(tampilkanKataMutiara, 8000);
 
-// === 🔮 RAMALAN FENGSHUI & PRIMBON ===
-const DATA_HARI = { 'Minggu':5, 'Senin':4, 'Selasa':3, 'Rabu':7, 'Kamis':8, 'Jumat':6, 'Sabtu':9 };
-const PASARAN = ['Legi','Pahing','Pon','Wage','Kliwon'];
-const NILAI_PASARAN = { 'Legi':5, 'Pahing':9, 'Pon':7, 'Wage':4, 'Kliwon':8 };
+// === ✅ 📸 SISTEM REFERENSI DESAIN OTOMATIS ===
+let aliranKamera = null;
 
-const ELEMEN = [
+// Basis pengetahuan referensi desain
+const DAFTAR_REFERENSI = [
     {
-        nama: 'Kayu',
-        ikon: '🌿',
-        warna: '🟢 Hijau, Cokelat Muda, Krem',
-        bahan: '🪵 Kayu alami, parket, anyaman rotan — segar dan hidup',
-        arah: '➡️ Timur & Tenggara',
-        bentuk: '📐 Persegi panjang, atap miring, ruang terbuka, banyak jendela',
-        gaya: '🌿 Alami, minimalis, sirkulasi udara baik, penuh tanaman',
-        sifat: 'Pertumbuhan, harapan, lembut namun kuat'
+        kata: ['ruang tamu', 'tamu', 'living', 'teras depan', 'fasad', 'depan rumah', 'ruang penyambutan'],
+        judul: '🏠 Ruang Tamu & Fasad Depan',
+        kategori: ['Interior', 'Fasad', 'Penyambutan'],
+        deskripsi: 'Berdasarkan foto yang Anda kirim, lokasi ini cocok dijadikan area penyambutan yang memberikan kesan pertama hangat dan menyambut.',
+        saran: `<strong>💡 Saran Desain LMJ:</strong><br>
+        ✅ Pilih gaya <em>Modern Minimalis</em> — bersih, terang, tidak penuh barang<br>
+        ✅ Warna dominan: krem, putih, cokelat muda — memberi kesan luas<br>
+        ✅ Pencahayaan: lampu gantung di tengah + lampu sorot di dinding<br>
+        ✅ Furnitur: sofa simpel, meja tamu rendah, cermin dinding agar terlihat luas<br>
+        📞 <strong>Hubungi kami</strong> untuk ukuran & rancangan spesifik sesuai lokasi Anda!`
     },
     {
-        nama: 'Api',
-        ikon: '🔥',
-        warna: '🔴 Merah, Oranye, Ungu, Emas',
-        bahan: '🧱 Batu bata, keramik berwarna terang, cat menyala',
-        arah: '⬆️ Selatan',
-        bentuk: '🔺 Segitiga, atap lancip, ruang berbentuk sudut tajam, pencahayaan terang',
-        gaya: '🔥 Mewah, elegan, hangat, pencahayaan maksimal',
-        sifat: 'Semangat, kehangatan, kemakmuran, keberanian'
+        kata: ['kamar tidur', 'kamar', 'bedroom', 'kamar utama', 'kamar anak', 'tempat tidur'],
+        judul: '🛏️ Kamar Tidur',
+        kategori: ['Privasi', 'Kenyamanan', 'Istirahat'],
+        deskripsi: 'Foto menunjukkan area yang cocok untuk tempat istirahat. Kamar yang baik menciptakan ketenangan dan pemulihan energi.',
+        saran: `<strong>💡 Saran Desain LMJ:</strong><br>
+        ✅ Pilih gaya <em>Tenang & Hangat</em> — warna lembut, pencahayaan redup<br>
+        ✅ Warna: biru muda, krem, hijau pudar, cokelat lembut<br>
+        ✅ Jendela diatur agar cahaya pagi masuk tapi tidak silau<br>
+        ✅ Lemari pakaian dinding agar hemat tempat<br>
+        ✅ Posisi tempat tidur tidak menghadap pintu langsung<br>
+        📞 <strong>Konsultasi GRATIS</strong> — kami sesuaikan dengan ukuran ruangan Anda!`
     },
     {
-        nama: 'Tanah',
-        ikon: '🏡',
-        warna: '🟡 Kuning, Cokelat Tua, Krem Gelap, Warna Bumi',
-        bahan: '🏡 Batu alam, keramik polos, tanah liat, cat warna tanah',
-        arah: '⬇️ Tenggara, Barat Daya, Tengah',
-        bentuk: '⬜ Persegi, simetris, kokoh, pondasi kuat, lantai rata',
-        gaya: '🏡 Klasik, kokoh, seimbang, awet, nuansa damai',
-        sifat: 'Kestabilan, keamanan, kesuburan, kebijaksanaan'
+        kata: ['dapur', 'masak', 'kitchen', 'ruang makan', 'makan', 'meja makan'],
+        judul: '🍳 Dapur & Ruang Makan',
+        kategori: ['Fungsional', 'Bersih', 'Berkumpul'],
+        deskripsi: 'Area ini adalah jantung rumah — tempat berkumpul, berbagi cerita, dan menjaga kesehatan keluarga.',
+        saran: `<strong>💡 Saran Desain LMJ:</strong><br>
+        ✅ Tata letak efisien: <em>segitiga kerja</em> — kompor → wastafel → kulkas<br>
+        ✅ Permukaan tahan panas & mudah dibersihkan: granit atau keramik berkualitas<br>
+        ✅ Ventilasi baik agar asap & bau keluar<br>
+        ✅ Ruang makan berdekatan dengan dapur agar praktis<br>
+        ✅ Warna cerah agar terlihat bersih & segar<br>
+        📞 <strong>LMJ Interior</strong> buat dapur impian Anda — rapi, awet, sesuai anggaran!`
     },
     {
-        nama: 'Logam',
-        ikon: '⚙️',
-        warna: '⚪ Putih, Perak, Abu-abu Terang, Emas',
-        bahan: '✨ Logam, kaca, granit, keramik mengkilap, permukaan halus',
-        arah: '⬅️ Barat & Barat Laut',
-        bentuk: '⭕ Lengkung, bulat, kubah, garis melengkung, sudut membulat',
-        gaya: '💎 Modern, bersih, mewah, rapi, elegan sederhana',
-        sifat: 'Ketegasan, ketepatan, kejelasan, ketahanan'
+        kata: ['ruang kerja', 'kantor', 'belajar', 'kerja', 'meja kerja', 'studi'],
+        judul: '💻 Ruang Kerja / Belajar',
+        kategori: ['Produktivitas', 'Fokus', 'Pertumbuhan'],
+        deskripsi: 'Area ini mendukung produktivitas — tempat ide tumbuh, pekerjaan selesai, dan ilmu dipelajari.',
+        saran: `<strong>💡 Saran Desain LMJ:</strong><br>
+        ✅ Pencahayaan alami dari samping agar tidak silau<br>
+        ✅ Warna dinding tenang: hijau lembut, biru pudar, krem<br>
+        ✅ Meja memadai, penyimpanan dinding agar lantai lega<br>
+        ✅ Kursi nyaman — menjaga kesehatan tulang punggung<br>
+        ✅ Suasana rapi = pikiran teratur<br>
+        📞 <strong>Hubungi kami</strong> — kami rancang sesuai kebutuhan Anda!`
     },
     {
-        nama: 'Air',
-        ikon: '🌊',
-        warna: '🔵 Biru, Hitam, Abu-abu Gelap, Warna Laut',
-        bahan: '🪟 Kaca bening, keramik kilap, cat halus, permukaan memantul',
-        arah: '⬇️ Utara',
-        bentuk: '〰️ Bergelombang, tidak bersudut tajam, alur mengalir, terbuka ke depan',
-        gaya: '🌊 Tenang, sejuk, simpel, menenangkan, cahaya lembut',
-        sifat: 'Ketenangan, kebijaksanaan, kelancaran rezeki, inspirasi'
+        kata: ['taman', 'halaman', 'teras', 'balkon', 'tumbuhan', 'luar', 'pekarangan'],
+        judul: '🌿 Taman & Area Luar',
+        kategori: ['Kesejukan', 'Udara Bersih', 'Kehidupan'],
+        deskripsi: 'Area terbuka memberi kesejukan, udara bersih, dan tempat bersantai bersama keluarga.',
+        saran: `<strong>💡 Saran Desain LMJ:</strong><br>
+        ✅ Pilih tanaman lokal yang mudah dirawat<br>
+        ✅ Lantai datar, alur air mengalir lancar<br>
+        ✅ Tempat duduk sederhana di bawah naungan<br>
+        ✅ Warna alami: batu, kayu, hijau daun<br>
+        ✅ Pencahayaan sore/malam agar tetap nyaman<br>
+        📞 <strong>LMJ Interior</strong> wujudkan taman & teras impian Anda!`
+    },
+    {
+        kata: ['kamar mandi', 'mandi', 'toilet', 'wastafel', 'klozet'],
+        judul: '🚿 Kamar Mandi',
+        kategori: ['Kebersihan', 'Kesehatan', 'Kenyamanan'],
+        deskripsi: 'Kamar mandi yang baik bersih, kering, dan nyaman — cerminan kesehatan penghuninya.',
+        saran: `<strong>💡 Saran Desain LMJ:</strong><br>
+        ✅ Lantai tidak licin, kemiringan ke saluran air terjaga<br>
+        ✅ Ventilasi atau jendela agar lembap keluar<br>
+        ✅ Bahan tahan air: keramik, kaca, cat khusus<br>
+        ✅ Pemisahan area basah & kering jika memungkinkan<br>
+        ✅ Warna cerah agar terlihat luas & bersih<br>
+        📞 <strong>Konsultasi GRATIS</strong> — kami kerjakan rapi & tahan lama!`
+    },
+    {
+        kata: ['ruang keluarga', 'keluarga', 'ruang tengah', 'ruang utama'],
+        judul: '🏡 Ruang Keluarga',
+        kategori: ['Kehangatan', 'Bersama', 'Kenyamanan'],
+        deskripsi: 'Ruang keluarga adalah pusat kehangatan rumah — tempat berkumpul, bercengkerama, dan menciptakan kenangan indah.',
+        saran: `<strong>💡 Saran Desain LMJ:</strong><br>
+        ✅ Susun furnitur agar mudah berkomunikasi<br>
+        ✅ Pencahayaan bertingkat: utama + hiasan + baca<br>
+        ✅ Bahan empuk & hangat: karpet, kain berkualitas<br>
+        ✅ Ruang terbuka ke arah cahaya matahari pagi<br>
+        ✅ Warna hangat: krem, cokelat lembut, oranye pudar<br>
+        📞 <strong>LMJ Interior</strong> wujudkan ruang keluarga yang nyaman!`
+    },
+    {
+        kata: ['rumah', 'bangunan', 'tanah', 'lahan', 'kosong', 'depan', 'belakang', 'samping', 'fondasi', 'atap'],
+        judul: '🏡 Seluruh Bangunan & Lahan',
+        kategori: ['Perencanaan', 'Pembangunan', 'Keseluruhan'],
+        deskripsi: 'Berdasarkan foto lahan/bangunan Anda, berikut panduan umum sebelum membangun atau merenovasi.',
+        saran: `<strong>💡 Saran Desain & Konstruksi LMJ:</strong><br>
+        ✅ Ukur & peta lokasi terlebih dahulu — batas, arah matahari, akses jalan<br>
+        ✅ Pahami bentuk lahan: persegi, memanjang, atau tidak beraturan<br>
+        ✅ Zona: depan → tamu/tetamu, tengah → keluarga, belakang → pribadi<br>
+        ✅ Cahaya & sirkulasi udara: jendela utamanya menghadap timur/utara<br>
+        ✅ Fondasi kokoh = bangunan awet<br>
+        📞 <strong>Hubungi LMJ Kontraktor</strong> — survey langsung ke lokasi Anda, rencana matang, pengerjaan rapi!`
     }
 ];
 
-function jumlahkanAngka(angka) {
-    let total = 0;
-    while (angka > 0) {
-        total += angka % 10;
-        angka = Math.floor(angka / 10);
+// Buka kamera HP
+async function bukaKamera() {
+    try {
+        aliranKamera = await navigator.mediaDevices.getUserMedia({ 
+            video: { facingMode: 'environment', width: { ideal: 1280 }, height: { ideal: 720 } } 
+        });
+        const video = document.getElementById('video-kamera');
+        video.srcObject = aliranKamera;
+        video.style.display = 'block';
+        document.getElementById('btn-ambil').style.display = 'inline-block';
+        document.getElementById('btn-tutup').style.display = 'inline-block';
+        document.getElementById('pratinjau').style.display = 'none';
+        document.getElementById('hasil-referensi').classList.remove('tampil');
+    } catch (err) {
+        alert('⚠️ Tidak bisa mengakses kamera. Silakan gunakan tombol "Unggah Foto" saja.');
     }
-    return total > 9 ? jumlahkanAngka(total) : total;
 }
 
-function hitungRamalan() {
-    const nama = document.getElementById('nama-pelanggan').value.trim();
-    const tgl = document.getElementById('tgl-lahir').value;
-    
-    if (!nama || !tgl) {
-        alert('⚠️ Silakan isi Nama dan Tanggal Lahir terlebih dahulu!');
-        return;
+// Tutup kamera
+function tutupKamera() {
+    if (aliranKamera) {
+        aliranKamera.getTracks().forEach(t => t.stop());
+        aliranKamera = null;
     }
-    
-    const d = new Date(tgl);
-    const tanggal = d.getDate();
-    const bulan = d.getMonth() + 1;
-    const tahun = d.getFullYear();
-    
-    // Hari & Pasaran Jawa
-    const hariNama = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'][d.getDay()];
-    const hariNilai = DATA_HARI[hariNama];
-    
-    // Hitung pasaran Jawa
-    const pasaranIndex = (tanggal + bulan + Math.floor(tahun / 4) + tahun + Math.floor(tahun / 100)) % 5;
-    const namaPasaran = PASARAN[pasaranIndex];
-    const nilaiPasaran = NILAI_PASARAN[namaPasaran];
-    const neptu = hariNilai + nilaiPasaran;
-    
-    // Hitung elemen
-    const angkaLahir = jumlahkanAngka(tanggal + bulan + tahun);
-    const elemenIndex = (angkaLahir - 1 + 5) % 5;
-    const elemen = ELEMEN[elemenIndex];
-    
-    // Sifat Weton
-    let sifatWeton = '';
-    if (neptu >= 17) {
-        sifatWeton = '🔹 Neptu <strong>' + neptu + '</strong> — Berwibawa, bijaksana, mudah mendapat keberuntungan. Cocok dengan rumah yang kokoh, luas, dan terlihat megah. Rezeki cenderung lancar dan berkembang.';
-    } else if (neptu >= 13) {
-        sifatWeton = '🔹 Neptu <strong>' + neptu + '</strong> — Rajin, tekun, bertanggung jawab. Cocok dengan hunian yang rapi, teratur, dan fungsional. Kesuksesan datang dari ketekunan & kerja keras.';
-    } else if (neptu >= 10) {
-        sifatWeton = '🔹 Neptu <strong>' + neptu + '</strong> — Lembut, suka menolong, dihormati orang. Cocok dengan rumah yang hangat, nyaman, dan penuh kasih sayang. Harmoni keluarga menjadi kekuatan utama.';
-    } else {
-        sifatWeton = '🔹 Neptu <strong>' + neptu + '</strong> — Cerdas, kreatif, berpikiran maju. Cocok dengan hunian yang unik, modern, dan penuh ide baru. Kreativitas membawa peluang & keberuntungan.';
-    }
-    
-    // Genap/Ganjil
-    const jenisNeptu = neptu % 2 === 0 ? 
-        '🔹 Neptu Genap → Bangunan sebaiknya <strong>simetris & seimbang</strong>, kiri-kanan sama, pintu utama di tengah atau sedikit ke kanan.' :
-        '🔹 Neptu Ganjil → Bangunan boleh <strong>dinamis & bervariasi</strong>, ada bagian yang menonjol, desain unik, tidak harus kaku.';
-    
-    // Bulan nama
-    const bulanNama = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
-    
-    // Tampilkan hasil
-    document.getElementById('nama-hasil').textContent = `✨ ${nama} — ${hariNama}, ${tanggal} ${bulanNama[bulan-1]} ${tahun}`;
-    
-    document.getElementById('elemen-hasil').innerHTML = 
-        `<strong>${elemen.ikon} Elemen ${elemen.nama}</strong><br>
-        Angka keberuntungan Anda: <strong>${angkaLahir}</strong><br>
-        Sifat dasar: ${elemen.sifat}`;
-    
-    document.getElementById('weton-hasil').innerHTML = 
-        `Hari: <strong>${hariNama}</strong> (nilai: ${hariNilai}) · Pasaran: <strong>${namaPasaran}</strong> (nilai: ${nilaiPasaran})<br>
-        Neptu total: <strong>${neptu}</strong><br><br>
-        ${sifatWeton}<br>
-        ${jenisNeptu}`;
-    
-    document.getElementById('arah-hasil').innerHTML = 
-        `✅ <strong>Arah Terbaik:</strong> ${elemen.arah}<br>
-        ✅ <strong>Bentuk & Atap:</strong> ${elemen.bentuk}<br>
-        ✅ <strong>Gaya Bangunan:</strong> ${elemen.gaya}`;
-    
-    document.getElementById('interior-hasil').innerHTML = 
-        `🎨 <strong>Warna Utama:</strong> ${elemen.warna}<br>
-        🪵 <strong>Bahan Terbaik:</strong> ${elemen.bahan}<br>
-        💡 <strong>Saran Penempatan:</strong> Ruang keluarga & kamar utama menghadap arah ${elemen.arah}. Hindari pintu utama berhadapan langsung dengan pintu belakang.`;
-    
-    document.getElementById('saran-hasil').innerHTML = 
-        `🏡 Hunian berunsur <strong>${elemen.nama}</strong> sangat cocok untuk Anda, ${nama}. LMJ Interior Eksterior siap mewujudkan hunian impian sesuai arah, warna, bahan, dan gaya terbaik ini.<br><br>
-        📞 <strong>Konsultasi desain GRATIS!</strong> Hubungi kami lewat WhatsApp untuk membuat rancangan rumah yang selaras dengan keberuntungan Anda. ✨`;
-    
-    document.getElementById('hasil-ramalan').classList.add('tampil');
+    document.getElementById('video-kamera').style.display = 'none';
+    document.getElementById('btn-ambil').style.display = 'none';
+    document.getElementById('btn-tutup').style.display = 'none';
 }
 
-// === ASISTEN AI ===
-const basisPengetahuan = {
-    'layanan': 'Kami menyediakan: ✅ Desain & Pengerjaan Interior ✅ Desain & Pengerjaan Eksterior ✅ Pembuatan Furniture Khusus ✅ Konstruksi & Kontraktor Umum. Semua dikerjakan dengan teliti dan rapi!',
-    'harga': 'Harga tergantung jenis, ukuran, dan tingkat kesulitan. Namun kami berikan harga wajar dan terjangkau. Silakan hubungi kami untuk konsultasi & penawaran GRATIS!',
-    'pesan': 'Cara pesan: 1️⃣ Konsultasi lewat WA 2️⃣ Survey & ukur lokasi 3️⃣ Buat desain & penawaran 4️⃣ Setuju → mulai pengerjaan!',
-    'alamat': '📍 Kantor: Jl. Mayor Kamari Sampurno No.58, Ditotrunan, Kec. Lumajang, Kab. Lumajang, Jawa Timur 67316\n📞 WA: 0822-3269-4521 / 0812-3083-2293',
-    'kontak': '📞 WhatsApp 1: 0822-3269-4521\n📞 WhatsApp 2: 0812-3083-2293\n📍 Alamat: Jl. Mayor Kamari Sampurno No.58, Lumajang, Jawa Timur',
-    'desain': 'Kami desain sesuai selera Anda — modern, minimalis, klasik, atau campuran. Bisa juga sesuai foto referensi yang Anda berikan!',
-    'pengerjaan': 'Pengerjaan rapi, tepat waktu, dikerjakan tenaga berpengalaman. Hasil berkualitas dengan harga terjangkau.',
-    'ramalan': 'Silakan masukkan Nama dan Tanggal Lahir Anda di bagian Ramalan Fengshui & Primbon di atas, lalu klik tombol untuk melihat hasilnya!',
-    'mutiara': 'Kata mutiara tentang kiat sukses selalu berganti secara otomatis di bagian galeri. Semoga menjadi inspirasi dalam membangun hunian impian!',
-    'default': 'Terima kasih bertanya! 😊 Untuk info lebih lengkap atau konsultasi langsung, silakan hubungi kami lewat WhatsApp ya.'
-};
-
-function dapatkanJawaban(pertanyaan) {
-    const tanya = pertanyaan.toLowerCase();
-    if (/layanan|jasa|kerja/.test(tanya)) return basisPengetahuan.layanan;
-    if (/harga|biaya|tarif|bayar/.test(tanya)) return basisPengetahuan.harga;
-    if (/pesan|cara|order|beli|proses/.test(tanya)) return basisPengetahuan.pesan;
-    if (/alamat|dimana|lokasi/.test(tanya)) return basisPengetahuan.alamat;
-    if (/kontak|telepon|wa|hubungi/.test(tanya)) return basisPengetahuan.kontak;
-    if (/desain|model|gaya/.test(tanya)) return basisPengetahuan.desain;
-    if (/pengerjaan|kualitas|kerja|lama/.test(tanya)) return basisPengetahuan.pengerjaan;
-    if (/ramalan|fengshui|primbon|weton|lahir/.test(tanya)) return basisPengetahuan.ramalan;
-    if (/mutiara|kiat sukses|filosofi/.test(tanya)) return basisPengetahuan.mutiara;
-    return basisPengetahuan.default;
+// Ambil foto dari kamera
+function ambilFoto() {
+    const video = document.getElementById('video-kamera');
+    const kanvas = document.createElement('canvas');
+    kanvas.width = video.videoWidth || 1280;
+    kanvas.height = video.videoHeight || 720;
+    kanvas.getContext('2d').drawImage(video, 0, 0);
+    kanvas.toBlob(blob => {
+        tutupKamera();
+        prosesFoto(blob);
+    }, 'image/jpeg', 0.85);
 }
 
-function tambahPesan(teks, pengirim) {
-    const kotak = document.getElementById('ai-chat');
-    const p = document.createElement('div');
-    p.className = `ai-pesan ${pengirim}`;
-    p.innerHTML = `<span>${teks.replace(/\n/g,'<br>')}</span>`;
-    kotak.appendChild(p);
-    kotak.scrollTop = kotak.scrollHeight;
-}
-
-function tanyaAI() {
-    const input = document.getElementById('ai-input');
-    const teks = input.value.trim();
-    if (!teks) return;
-    tambahPesan(teks, 'user');
-    input.value = '';
-    setTimeout(() => {
-        tambahPesan(dapatkanJawaban(teks), 'bot');
-    }, 600);
-}
-
-function tanyaPertanyaan(tanya) {
-    document.getElementById('ai-input').value = tanya;
-    tanyaAI();
-}
-</script>
-</body>
-</html>
+// Proses foto & tampilkan referensi desain
+function prosesFoto(berkas) {
+    if (!berkas) return;
+    
+    const pratinjau = document.getElementById('pratinjau');
+    pratinjau.src = URL.createObjectURL(berkas);
+    pratinjau.style.display = 'block';
+    
+    // Analisis berdasarkan nama file
+    const nama = (berkas.name || '').toLowerCase();
+    let cocok = DAFTAR_REFERENSI[DAFTAR_REFERENSI.length - 1]; // default: bangunan
+    
+    // Cek kecocokan kata kunci
+    for (const ref of DAFTAR_REFERENSI) {
+        for (const kunci of ref.kata) {
+            if (nama.includes(kunci)) {
+                cocok = ref;
+                break;
+            }
+        }
+        if (nama.includes(cocok.kata[0])) break
